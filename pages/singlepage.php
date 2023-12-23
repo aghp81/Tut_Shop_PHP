@@ -200,7 +200,10 @@
                     </p>
                     <hr>
                     <div class="p-2">
-                    <a href="" class="category-tags">برنامه نویسی وب</a>
+                        <div class="mt-0">
+                            <a style="display:inline-block; margin:5px;"  href="" class="category-tags">برنامه نویسی وب</a>
+                            <a style="display:inline-block; margin:5px;"  href="" class="category-tags">برنامه نویسی وب</a>
+                        </div>
                     </div>
                 </div>
                 <!-- دسته بندی -->
@@ -208,7 +211,7 @@
                 <!-- برچسب ها -->
                 <div class="information-cours shadow p-3 mb-5 bg-white rounded box-caption-dore">
                     <p style="font-size: 17px;">
-                    <svg style="opacity: 0.35; margin-bottom: 0px; margin-left: 6px; font-size: 17px;" width="1em"
+                    <svg class="ml-2" style="opacity: 0.35;" style="opacity: 0.35; margin-bottom: 0px; margin-left: 6px; font-size: 17px;" width="1em"
                             height="1em" viewBox="0 0 16 16" class="bi bi-tags" fill="currentColor"
                             xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd"
@@ -222,17 +225,35 @@
                         برچسب ها: 
                     </p>
                     <hr>
+
                     <div class="p-2">
-                    <a href="" class="category-tags">برنامه نویسی وب</a>
+                        <a href="" class="category-tags-1">برنامه نویسی وب</a>
+                        <a href="" class="category-tags-1">برنامه نویسی وب</a>
+                        <a href="" class="category-tags-1">برنامه نویسی وب</a>
+                        <a href="" class="category-tags-1">برنامه نویسی وب</a>
                     </div>
+
                 </div>
                 <!-- برچسب ها -->
+
+                <!-- تبلیغات -->
+                <div class="image-tab-banner pt-1 m-4">
+                    <img src="../image/bannertab.png" alt="">
+                </div>
+                <!-- تبلیغات -->
 
             </div>
             <!-- Right Sidebar -->
            
-
-            <div class="col-12 col-lg-8 mt-4" style="background-color: red; height:400px;"></div>
+            <!-- Left Sidebar -->
+            <div class="col-12 col-lg-8 mt-4">
+                <div class="shadow p-3 mb-5 bg-white rounded">
+                    <div class="image-crouser">
+                        <img src="../image/php-tutorial.jpg" alt="" width="50%">
+                    </div>
+                </div>
+            </div>
+            
 
         </div>
     </div>
