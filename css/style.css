@@ -322,3 +322,18 @@ footer a{
     background-color: #dce4e9;
     border: 1px solid  #dce4e9;
  }
+
+ .image-crouser img{
+    padding: 15px;
+ }
+
+ /* .content-course p{
+    padding: 25px;
+    text-align: justify;
+    line-height: 30px;
+ } */
+
+ .video-item video{
+    padding: 25px;
+    border-radius: 25px;
+ }

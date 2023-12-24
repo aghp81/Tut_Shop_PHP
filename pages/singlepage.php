@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,6 +11,7 @@
     <link rel="stylesheet" href="../css/style.css">
 
 </head>
+
 <body style="background-color: #f1f1f1;">
     <!-- Top Header -->
     <div class="container top-header">
@@ -18,18 +20,21 @@
         <!-- Search Box -->
         <div class="search-box d-none d-lg-flex">
             <div class="input-group md-form form-sm form-1 pl-0">
-                <input class="form-control my-0 py-1" type="text" placeholder="دنبال چه آموزشی می گردی؟" aria-label="Search">
+                <input class="form-control my-0 py-1" type="text" placeholder="دنبال چه آموزشی می گردی؟"
+                    aria-label="Search">
                 <div class="input-group-prepend" style="font-size:16px;">
                     <span style="background-color: #007bff;" class="input-group-text purple lighten-3" id="basic-text1">
-                        <svg style="color:#fff;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                        <svg style="color:#fff;" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                            fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                            <path
+                                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
                         </svg>
                     </span>
                 </div>
-                
+
             </div>
         </div>
-         <!-- Search Box -->
+        <!-- Search Box -->
 
         <div class="instagram-icon">
             <a href=""><img src="../image/instagram.png" alt="logo header"></a>
@@ -66,8 +71,8 @@
                         <a class="nav-link" href="#"> برنامه نویسی موبایل </a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-                            role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             بازی سازی
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -86,7 +91,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12 col-lg-12">
-                    <img class="img-fluid img-thumbnail p-2" src="../image/takhfif-banner.gif" alt="">
+                <img class="img-fluid img-thumbnail p-2" src="../image/takhfif-banner.gif" alt="">
             </div>
 
             <!-- Right Sidebar -->
@@ -97,19 +102,19 @@
                     <hr>
 
                     <p class="caption-ostad-more">
-                        <svg class="opacity-50" width="1em" height="1em" viewBox="0 0 16 16"
-                            class="bi bi-person-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <svg class="opacity-50" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-fill"
+                            fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd"
                                 d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
                         </svg>
                         <span>
-                        مدرس دوره : محمد معین باغ شیخی <a href="" style="color: #6fc341;">( رزومه )</a>
+                            مدرس دوره : محمد معین باغ شیخی <a href="" style="color: #6fc341;">( رزومه )</a>
                         </span>
                     </p>
 
                     <p class="caption-ostad-more">
-                        <svg class="opacity-50" width="1em" height="1em" viewBox="0 0 16 16"
-                            class="bi bi-people-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <svg class="opacity-50" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-people-fill"
+                            fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd"
                                 d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z" />
                         </svg>
@@ -132,8 +137,8 @@
                     </p>
 
                     <p class="caption-ostad-more">
-                        <svg class="opacity-50" width="1em" height="1em" viewBox="0 0 16 16"
-                            class="bi bi-clock-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <svg class="opacity-50" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-clock-fill"
+                            fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd"
                                 d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z" />
                         </svg>
@@ -143,8 +148,8 @@
                     </p>
 
                     <p class="caption-ostad-more">
-                        <svg class="opacity-50" width="1em" height="1em" viewBox="0 0 16 16"
-                            class="bi bi-award-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <svg class="opacity-50" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-award-fill"
+                            fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M8 0l1.669.864 1.858.282.842 1.68 1.337 1.32L13.4 6l.306 1.854-1.337 1.32-.842 1.68-1.858.282L8 12l-1.669-.864-1.858-.282-.842-1.68-1.337-1.32L2.6 6l-.306-1.854 1.337-1.32.842-1.68L6.331.864 8 0z" />
                             <path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1 4 11.794z" />
@@ -164,7 +169,7 @@
                         <span>
                             وضعیت دوره
                         </span>
-                            : <span style="color: #00b3e9;">در حال برگزاری</span>
+                        : <span style="color: #00b3e9;">در حال برگزاری</span>
                     </p>
 
                     <p class="caption-ostad-more">
@@ -182,11 +187,11 @@
                     <div class="btn btn-outline-success btn-lg login-in-dore">
                         <a href="" class="shoping-btn">ثبتـــ نام در این دوره</a>
                     </div>
-                
-                </div>
-                 <!-- اطلاعات دوره -->
 
-                 <!-- دسته بندی -->
+                </div>
+                <!-- اطلاعات دوره -->
+
+                <!-- دسته بندی -->
                 <div class="information-cours shadow p-3 mb-5 bg-white rounded box-caption-dore">
                     <p style="font-size: 17px;">
                         <svg style="opacity: 0.35; margin-bottom: 0px; margin-left: 6px; font-size: 17px;" width="1em"
@@ -201,8 +206,10 @@
                     <hr>
                     <div class="p-2">
                         <div class="mt-0">
-                            <a style="display:inline-block; margin:5px;"  href="" class="category-tags">برنامه نویسی وب</a>
-                            <a style="display:inline-block; margin:5px;"  href="" class="category-tags">برنامه نویسی وب</a>
+                            <a style="display:inline-block; margin:5px;" href="" class="category-tags">برنامه نویسی
+                                وب</a>
+                            <a style="display:inline-block; margin:5px;" href="" class="category-tags">برنامه نویسی
+                                وب</a>
                         </div>
                     </div>
                 </div>
@@ -211,7 +218,8 @@
                 <!-- برچسب ها -->
                 <div class="information-cours shadow p-3 mb-5 bg-white rounded box-caption-dore">
                     <p style="font-size: 17px;">
-                    <svg class="ml-2" style="opacity: 0.35;" style="opacity: 0.35; margin-bottom: 0px; margin-left: 6px; font-size: 17px;" width="1em"
+                        <svg class="ml-2" style="opacity: 0.35;"
+                            style="opacity: 0.35; margin-bottom: 0px; margin-left: 6px; font-size: 17px;" width="1em"
                             height="1em" viewBox="0 0 16 16" class="bi bi-tags" fill="currentColor"
                             xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd"
@@ -220,9 +228,9 @@
                                 d="M5.5 5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zm0 1a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
                             <path
                                 d="M1 7.086a1 1 0 0 0 .293.707L8.75 15.25l-.043.043a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 0 7.586V3a1 1 0 0 1 1-1v5.086z" />
-                    </svg>
+                        </svg>
 
-                        برچسب ها: 
+                        برچسب ها:
                     </p>
                     <hr>
 
@@ -244,21 +252,77 @@
 
             </div>
             <!-- Right Sidebar -->
-           
+
             <!-- Left Sidebar -->
-            <div class="col-12 col-lg-8 mt-4">
+            <div class="col-12 col-lg-8 mt-4" style="border: 1px solid #ecf0f4;">
                 <div class="shadow p-3 mb-5 bg-white rounded">
-                    <div class="image-crouser">
-                        <img src="../image/php-tutorial.jpg" alt="" width="50%">
+                    <div class="image-crouser p-4">
+                        <img class="img-fluid " src="../image/php-tutorial.jpg" alt="">
                     </div>
+                    <!-- درباره دوره -->
+                    <div class="content-course">
+                        <div class="course-content-text js-collapse-container collapsed collapsed-custom"
+                            style="height: 1107px; max-height: inherit;">
+                            <h2>آموزش ساخت وبسایت آموزشی (فروشگاهی) با PHP</h2>
+                            <p>زبان برنامه نویسی php یکی از محبوب ترین زبان های برنامه نویسی تحت وب میان علاقمندان به
+                                این حوزه بوده بطوری که سیستم های مدیریت محتوای محبوبی همچون وردپرس, جوملا, دورپال و...
+                                با استفاده از آن طراحی و ایجاد شده است.اما همیشه اتکا به امکانات این نوع سیستم ها منطقی
+                                نبوده و در بعضی مواقع نیاز به طراحی یک سیستم بصورت اختصاصی احساس می شود در اینگونه موارد
+                                تسط به زبان برنامه نویسی php و توانایی تجزیه و تحلیل مسئله از اهمیت بالایی برخودار است
+                                زیرا درک صحیح از نحوه پیاده سازی یک وب اپلیکشن با قابلیت های بالا ,انعطاف پذیر , و قابل
+                                توسعه تقریبا نیمی از پروسه طراحی و پیاده سازی آن است.</p>
+                            <p>موارد مهم این دوره:</p>
+                            <p>۱: بخش مدیریت دوره های آموزشی</p>
+                            <p>۲: بخش مدرسین</p>
+                            <p>۳: افزودن کد تخفیف</p>
+                            <p>۴: بخش آمار فروش و بازدید دوره ها</p>
+                            <p>۵: مدیریت مقالات</p>
+                            <p>۶: مدیریت دسته بندی ها</p>
+                            <p>۷: ابزارک سئو</p>
+                            <p>۸: ابزارک حرفه ای تبلیغات</p>
+                            <p>۹: قابلیت قرار دادن ویدئو دمو دوره آموزشی</p>
+                            <p>۱۰: قابلیت انتخواب نوع دوره(رایگان ، نقدی)</p>
+                            <p>۱۱: امکان ارسال ایمیل برای کاربر بعد از خرید</p>
+                            <p>۱۲: امکان دریافت تمام مشخصات کاربر بعد از خرید توسط سیستم</p>
+                            <p>۱۳: امکان مشاهده ی پرفروشترین دوره های آموزشی در پنل ادمین</p>
+                            <p>۱۴: امکان برقراری ارتباط بین مدرس و دانشجو از طریق تیکت (درون خود سایت)</p>
+                            <p>۱۵: سیستم نظر دهی حرفه ای و چند سطحی</p>
+                            <p>۱۶: مدیریت پیشرفته ی اسلایدر ها</p>
+                            <p>۱۷: ایجاد پروفایل کاربری برای دانشجو و مدرس</p>
+                            <p>۱۸: امکان پسندیدن یا نپسندیدن برای دوره ها</p>
+                            <p>۱۹: دریافت و ثبت سیستم عامل کاربر (موبایل ، دکستاپ)</p>
+                            <p>۲۰: دریافت و ثبت زمان ورود و خروج کاربر + مدت زمان حضور در صفحات</p><br>
+                            <div><span class="course-info-btn-display-more js-collapse-btn" data-collapsed="نمایش بیشتر"
+                                    data-expand="بستن"> <i
+                                        class="zmdi zmdi-chevron-down course-info-icon-down-display-more"></i> </span>
+                            </div>
+                        </div>
+                        
+                        <div class="alert alert-success">
+                            لطفا سوالات خود را در مورد این آموزش در بخش  <a style="color: #007bff;" href="#">پرسش و پاسخ</a> مطرح کنید. به سوالات در بخش نظرات پاسخ داده نخواهد شد.
+                        </div>
+
+                        <div>
+                            <h5 class="p-4">فهرستـــ ویدیوها</h5>
+
+                            <video class="video-item p-4" src="../video/01_PhpCreateEshop.mp4" controls width="100%"></video>
+                        </div>
+
+                        <div class="alert alert-info">
+                            راهنما!جهت دریافت لینک دانلود ویدئوها بر روی این لینک ها کلیک کنید.
+                        </div>
+
+                    </div>
+                    <!-- درباره دوره -->
+
                 </div>
             </div>
-            
+
 
         </div>
     </div>
     <!-- content single page -->
-    
+
     <!-- Footer -->
     <footer class="mt-5">
         <div class="back-footer">
@@ -267,7 +331,9 @@
                     <div class="col-12 col-lg-4">
                         <h6 class="mt-3">درباره AGHP</h6>
                         <hr class="header-caption-footer">
-                        <p>این سایت یکی از پرتلاش تزین و بهروز ترین وب سایت های آموزشی در سطح ایران است که همیشه تلاش کرده تا بتواند جدیدترین و به روزترین مقالات و دوره های آموزشی را در اختیار علاقه مندان قرار دهد.تبدیل کردن برنامه نویسان ایران به بهترین برنامه نویسان جهان هدف ماست.</p>
+                        <p>این سایت یکی از پرتلاش تزین و بهروز ترین وب سایت های آموزشی در سطح ایران است که همیشه تلاش
+                            کرده تا بتواند جدیدترین و به روزترین مقالات و دوره های آموزشی را در اختیار علاقه مندان قرار
+                            دهد.تبدیل کردن برنامه نویسان ایران به بهترین برنامه نویسان جهان هدف ماست.</p>
                     </div>
                     <div class="col-12 col-lg-1"></div>
                     <div class="col-12 col-lg-2">
@@ -283,31 +349,31 @@
                         <h6 class="mt-3">تماس با ما</h6>
                         <hr class="header-caption-footer">
                         <p>شما می توانید با یکی از راه های زیر با ما در تماس باشید</p>
-                        
-                        <div >
+
+                        <div>
                             <!-- SVG EMAIL -->
                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-envelope-fill"
-                            fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd"
-                                d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555zM0 4.697v7.104l5.803-3.558L0 4.697zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757zm3.436-.586L16 11.801V4.697l-5.803 3.546z" />
+                                    d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555zM0 4.697v7.104l5.803-3.558L0 4.697zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757zm3.436-.586L16 11.801V4.697l-5.803 3.546z" />
                             </svg>
-                        <!-- SVG EMAIL -->
-                            
-                            <span>  ایمیل: aghp81@gmail.com</span>
+                            <!-- SVG EMAIL -->
+
+                            <span> ایمیل: aghp81@gmail.com</span>
                         </div>
 
                         <div class="mt-3">
                             <!-- SVG PHONE -->
-                        <svg width="1em" height="1em" viewBox="0 0 16 16"
-                            class="bi bi-telephone-forward-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                d="M2.267.98a1.636 1.636 0 0 1 2.448.152l1.681 2.162c.309.396.418.913.296 1.4l-.513 2.053a.636.636 0 0 0 .167.604L8.65 9.654a.636.636 0 0 0 .604.167l2.052-.513a1.636 1.636 0 0 1 1.401.296l2.162 1.681c.777.604.849 1.753.153 2.448l-.97.97c-.693.693-1.73.998-2.697.658a17.471 17.471 0 0 1-6.571-4.144A17.47 17.47 0 0 1 .639 4.646c-.34-.967-.035-2.004.658-2.698l.97-.969zM12.646.646a.5.5 0 0 1 .708 0l2.5 2.5a.5.5 0 0 1 0 .708l-2.5 2.5a.5.5 0 0 1-.708-.708L14.293 4H9.5a.5.5 0 0 1 0-1h4.793l-1.647-1.646a.5.5 0 0 1 0-.708z" />
+                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-telephone-forward-fill"
+                                fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M2.267.98a1.636 1.636 0 0 1 2.448.152l1.681 2.162c.309.396.418.913.296 1.4l-.513 2.053a.636.636 0 0 0 .167.604L8.65 9.654a.636.636 0 0 0 .604.167l2.052-.513a1.636 1.636 0 0 1 1.401.296l2.162 1.681c.777.604.849 1.753.153 2.448l-.97.97c-.693.693-1.73.998-2.697.658a17.471 17.471 0 0 1-6.571-4.144A17.47 17.47 0 0 1 .639 4.646c-.34-.967-.035-2.004.658-2.698l.97-.969zM12.646.646a.5.5 0 0 1 .708 0l2.5 2.5a.5.5 0 0 1 0 .708l-2.5 2.5a.5.5 0 0 1-.708-.708L14.293 4H9.5a.5.5 0 0 1 0-1h4.793l-1.647-1.646a.5.5 0 0 1 0-.708z" />
                             </svg>
-                        <!-- SVG PHONE -->
+                            <!-- SVG PHONE -->
 
                             <span> تماس: 09307515783</span>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
@@ -338,4 +404,5 @@
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
 </body>
+
 </html>
