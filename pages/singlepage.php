@@ -308,9 +308,22 @@
                             <video class="video-item p-4" src="../video/01_PhpCreateEshop.mp4" controls width="100%"></video>
                         </div>
 
+                        <div class="alert alert-warning">
+                            در صورتی که ویدئو مشاهده نشد آن را دانلود کنید و با kmPlayer اجرا کنید.
+                        </div>
+
                         <div class="alert alert-info">
                             راهنما!جهت دریافت لینک دانلود ویدئوها بر روی این لینک ها کلیک کنید.
                         </div>
+
+                        <!-- سرفصل دوره -->
+                        <div class="downlod-box mt-5">
+                            <div class="download-item">
+                                <span class="title-download-item">معرفی دوره</span>
+                                <span class="time-download-item" style="margin-left: 15px;">۰۰:۳۲:۰۰ </span>
+                            </div>
+                        </div>
+                        <!-- سرفصل دوره -->
 
                     </div>
                     <!-- درباره دوره -->

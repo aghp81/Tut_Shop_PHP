@@ -337,3 +337,17 @@ footer a{
     padding: 25px;
     border-radius: 25px;
  }
+
+ .download-item{
+    border: 1px dashed #d7e0e9;
+    border-radius: 5px;
+    position: relative;
+    margin-bottom: 15px;
+    padding: 12px 15px;
+    line-height: 20px;
+ }
+
+ .time-download-item{
+    color: #8f9ca7;
+ }
+ 
