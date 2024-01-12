@@ -30,12 +30,75 @@
             </div>
         </div>
          <!-- Search Box -->
-
+        
+        <!-- ورود/ثبت نام -->
         <div class="instagram-icon">
-            <a href=""><img src="image/instagram.png" alt="logo header"></a>
-            <a href=""><img src="image/telegram.png" alt="logo header"></a>
-            <a href=""><img src="image/youtube.png" alt="logo header"></a>
+            <nav class="navbar navbar-expand-lg" style="width: 100%; direction:ltr;">
+                <div style="margin-left: -16px; margin-right: -22px;">
+                    <div class="container">
+                        <ul class="navbar-nav">
+                            <li class="nav-item dropdown">
+                                <a style="color:#333; padding-left:35px; margin-top -50px;" class="nav-link " href="#" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                    style="color: #fff">
+
+                                    <svg width="0.8em" height="0.8em" viewBox="0 0 16 16" class="bi bi-caret-down-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+                                    </svg>
+
+                                     احمد رضایی
+                                     <img src="image/profile.gif" style="margin-top:-10px;" class="rounded-circle" width="50" height="50" alt="">
+                                </a>
+                                <div class="dropdown-menu myaccount-dropdown dropdown-menu-right text-right"
+                                    aria-labelledby="navbarDropdown" style="margin-right:-40px;">
+                                    <span style="font-size:12px; font-weight:bold;"> موجودی  شما: <span style="color: #6fc341; font-size:12px; font-weight:bold;"> ۶۰۷,۴۰۰ تومان</span></span>
+                                    <hr>
+                                    <a class="dropmenu" href="#">
+                                        
+                                        <svg style="color: #6fc341; margin-left:2px;" width="0.4em" height="0.4em" viewBox="0 0 16 16" class="bi bi-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="8" cy="8" r="8"/>
+                                        </svg>
+                                        مشاهده حساب کاربری
+                                    </a>
+                                    <a class="dropmenu" href="#">
+                                        <svg style="color: #6fc341; margin-left:2px;" width="0.4em" height="0.4em" viewBox="0 0 16 16" class="bi bi-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="8" cy="8" r="8"/>
+                                        </svg>
+                                        ویرایش اطلاعات حساب </a>
+                                    <a class="dropmenu" href="#">
+                                        <svg style="color: #6fc341; margin-left:2px;" width="0.4em" height="0.4em" viewBox="0 0 16 16" class="bi bi-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="8" cy="8" r="8"/>
+                                        </svg>
+                                        مشاهده سفارشات</a>
+                                    <a class="dropmenu" href="#">
+                                        <svg style="color: #6fc341; margin-left:2px;" width="0.4em" height="0.4em" viewBox="0 0 16 16" class="bi bi-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="8" cy="8" r="8"/>
+                                        </svg>
+                                        فراموشی رمز عبور </a>
+                                    <a class="dropmenu" href="#">
+                                        <svg style="color: #6fc341; margin-left:2px;" width="0.4em" height="0.4em" viewBox="0 0 16 16" class="bi bi-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="8" cy="8" r="8"/>
+                                        </svg>
+                                        کیف پول من </a>
+                                    <a class="dropmenu" href="#"> 
+                                        <svg style="color: #6fc341; margin-left:2px;" width="0.4em" height="0.4em" viewBox="0 0 16 16" class="bi bi-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="8" cy="8" r="8"/>
+                                        </svg>
+                                        تراکنش ها</a>
+                                    <a class="dropmenu" href="#">
+                                        <svg style="color: #6fc341; margin-left:2px;" width="0.4em" height="0.4em" viewBox="0 0 16 16" class="bi bi-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="8" cy="8" r="8"/>
+                                        </svg>
+                                        خروج از حساب کاربری</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
         </div>
+        <!-- ورود/ثبت نام -->
     </div>
 
 
@@ -50,6 +113,9 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent" style="background-color: #333;">
             <div class="container">
                 <ul class="navbar-nav">
+                    <li class="nav-item d-block d-lg-none">
+                        <input type="search" class="searchbox-mobile" style="" placeholder="دنبال چی میگردی؟">
+                    </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="#" style="color: #fff;"> برنامه نویسی</a>
                     </li>
