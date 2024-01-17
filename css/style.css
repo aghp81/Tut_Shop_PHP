@@ -844,7 +844,6 @@ footer a{
     padding-right: 4px;
 }
 
-
 .register-item{
     width: 47%;
     margin-right: 279px;
@@ -880,6 +879,7 @@ footer a{
     -webkit-border-radius: 7px;
     margin-top: 15px;
 }
+
 .footer-register{
     margin-right: 100px;
     margin-top: 20px;
@@ -903,5 +903,3 @@ footer a{
 .submit-reg{
     border: 0px solid;
 }
- 
-
