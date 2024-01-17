@@ -29,9 +29,8 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `user` (
   `id` bigint(20) NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `user-name` varchar(255) NOT NULL,
-  `phone` int(11) DEFAULT NULL,
+  `username` varchar(255) NOT NULL,
+  `phone` varchar(11) DEFAULT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `role` int(11) NOT NULL DEFAULT 1,
@@ -61,4 +60,5 @@ COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
