@@ -31,10 +31,11 @@ CREATE TABLE `user` (
   `id` bigint(20) NOT NULL,
   `username` varchar(255) NOT NULL,
   `phone` varchar(11) DEFAULT NULL,
+  `phone` int(11) DEFAULT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `role` int(11) NOT NULL DEFAULT 1,
-  `status` int(11) NOT NULL DEFAULT 1
+  `status` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
