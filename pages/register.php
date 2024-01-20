@@ -1,3 +1,44 @@
+<?php  
+    include"../database/db.php";
+
+    $ErrReqEmailPass = "";
+    $ErrMsgRePass = "";
+    $SuccessSubmit = "";
+
+    if(isset($_POST['submit'])){
+        
+            global $conn;
+
+            $username = $_POST['username'];
+            $phone = $_POST['phone'];
+            $mail = $_POST['mail'];
+            $pass = $_POST['pass'];
+            $repass = $_POST['repass'];
+
+            if(!empty($mail) & !empty($pass)){
+                if($pass == $repass){
+                    $gt = $conn->prepare("INSERT INTO user SET username=?, phone=?, email=?, password=?");
+                    $gt->bindValue(1 , $username);
+                    $gt->bindValue(2 , $phone);
+                    $gt->bindValue(3 , $mail);
+                    $gt->bindValue(4 , $pass);
+                    $gt->execute();
+                    $SuccessSubmit = true;
+                }else{
+                    $ErrMsgRePass = true;
+                }
+                    
+                }else{
+                    $ErrReqEmailPass = true;
+                    
+                }
+                
+            }
+    
+    
+?>
+
+
 <!doctype html>
 <html lang="fa">
 
@@ -7,6 +48,10 @@
     <title>آموزش برنامه نویسی</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/style.css">
+<!-- toaster js library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+<!-- toaster js library -->
+ 
 </head>
 
 <body>
@@ -30,7 +75,7 @@
             </div>
         </div>
          <!-- Search Box -->
-        
+         
         <!-- ورود/ثبت نام -->
         <div class="instagram-icon">
             <nav class="navbar navbar-expand-lg" style="width: 100%; direction:ltr;">
@@ -148,6 +193,7 @@
     </nav>
     <!-- Nav Menu -->
 
+    <!-- فرم ثبت نام -->
     <div class="container">
         <div class="row">
             <div class="register-item mb-5">
@@ -159,24 +205,34 @@
                 </div>
 
                 <div class="input-register">
-                    <input type="text" placeholder="نام کاربری را وارد کنید">
-                    <input type="number" placeholder="شماره موبایل را وارد کنید">
-                    <input type="email" style="display: block; width: 385px;" placeholder="ایمیل را وارد کنید">
-                    <input type="password" placeholder="رمز عبو خود را وارد کنید">
-                    <input type="password" placeholder="رمز عبور را تکرار کنید">
+
+                    <!-- پیغام های خطا و موفقیت -->
+                    <p style="color:red;"><?php if($ErrReqEmailPass){echo "لطفا ایمیل و رمز عبور را وارد کنید." ; }  ?></p>
+                    <p style="color:red;"><?php if($ErrMsgRePass){echo "پسورد با تکرار پسور مطابقت ندارد." ; }  ?></p>
+                    <p style="color:green;"><?php if($SuccessSubmit){echo "ثبت اطلاعات با موفقیت انجام شد. رمز یکبار مصرف به ایمیل شما ارسال شد." ; }  ?></p>
+                    <!-- پیغام های خطا و موفقیت -->
+
+                    <form method="POST" action="">
+                        <input type="text" name="username"  placeholder="نام کاربری را وارد کنید">
+                        <input type="number" name="phone" placeholder="شماره موبایل را وارد کنید">
+                        <input type="email" name="mail" style="display: block; width: 385px;" placeholder="ایمیل را وارد کنید">
+                        <input type="password" name="pass" placeholder="رمز عبو خود را وارد کنید">
+                        <input type="password" name="repass" placeholder="رمز عبور را تکرار کنید">
+                        
+                        <input name="submit" type="submit"  class="btn btn-info submit-reg" value="ثبت نام در سایت">
+                    </form>
                 </div>
 
                 <div class="footer-register">
-
-                    <a href="" class="btn btn-info submit-reg"> ثبت نام در سایت</a>
                     <a href="" class="btn-reg">ورود به سایت</a>
                     <a href="" class="btn-reg">فراموشی رمز عبور</a>
-
                 </div>
 
             </div>
         </div>
     </div>
+    <!-- فرم ثبت نام -->
+
 
 
 <br><br>
@@ -256,9 +312,7 @@
     <script src="js/jquery-3.7.1.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/javascript.js"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
-    </script>
+    
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
     </script>
@@ -266,7 +320,53 @@
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
 
+    <!-- jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>   
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js" ></script>
+    <!-- jquery -->
+
+    <!-- toaster js library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <!-- toaster js library -->
+    
     <img src="image/teleg2.png" alt="" class="fixed-bottom d-none d-lg-block">
+
+    
 </body>
+
+<!-- پیغام خطای خالی بودن آدرس ایمیل و رمز عبور  -->
+<?php  if($ErrReqEmailPass){  ?>
+     
+    <script>
+            toastr.error('لطفا ایمیل و رمز عبور را وارد کنید.', 'پیغام خطا')
+    </script>
+
+
+<?php  } ?>
+
+<!-- پیغام خطای تکرار پسورد -->
+<?php  if($ErrMsgRePass){  ?>
+     
+     <script>
+             toastr.error('تکرار پسورد با پسورد مطابقت ندارد.', 'پیغام خطا')
+     </script>
+ 
+ 
+ <?php  } ?>
+
+ <!-- پیغام موفقیت آمیز بودن ثبت اطلاعات -->
+<?php  if($SuccessSubmit){  ?>
+     
+     <script>
+             toastr.success('ثبت اطلاعات با موفقیت انجام شد. رمز یکبار مصرف به ایمیل شما ارسال شد.', 'پیغام موفقیت')
+     </script>
+ 
+ 
+ <?php  } ?>
 
 </html>
