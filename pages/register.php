@@ -14,14 +14,16 @@
             $mail = $_POST['mail'];
             $pass = $_POST['pass'];
             $repass = $_POST['repass'];
+            $active = rand(1000, 9999);
 
             if(!empty($mail) & !empty($pass)){
                 if($pass == $repass){
-                    $gt = $conn->prepare("INSERT INTO user SET username=?, phone=?, email=?, password=?");
+                    $gt = $conn->prepare("INSERT INTO user SET username=?, phone=?, email=?, password=?, active=?");
                     $gt->bindValue(1 , $username);
                     $gt->bindValue(2 , $phone);
                     $gt->bindValue(3 , $mail);
                     $gt->bindValue(4 , $pass);
+                    $gt->bindValue(5 , $active);
                     $gt->execute();
                     $SuccessSubmit = true;
                 }else{
