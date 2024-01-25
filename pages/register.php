@@ -26,6 +26,7 @@
                     $gt->bindValue(5 , $active);
                     $gt->execute();
                     $SuccessSubmit = true;
+                    header('Location:check.php?success=true');
                 }else{
                     $ErrMsgRePass = true;
                 }
