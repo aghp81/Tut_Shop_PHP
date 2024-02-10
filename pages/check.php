@@ -70,7 +70,7 @@
                     <div class="container">
                         <ul class="navbar-nav">
                             <li class="nav-item dropdown">
-                                <a style="color:#333; padding-left:35px; margin-top -50px;" class="nav-link " href="#" role="button"
+                                <a style="color:#333; padding-left:35px; margin-top: -50px;" class="nav-link " href="#" role="button"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                                     style="color: #fff">
 

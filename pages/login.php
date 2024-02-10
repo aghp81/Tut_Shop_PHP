@@ -1,3 +1,27 @@
+<?php
+    include"../database/db.php";
+    $successmessage = null;
+    $errormessage = null;
+
+    if(isset($_POST['sub'])){
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+
+        $gt = $conn->prepare("SELECT * FROM user WHERE email = ? AND password = ?");
+        $gt->bindValue(1, $email); 
+        $gt->bindValue(2, $password); 
+        $gt->execute();
+
+        if ($gt->rowCount()>=1) {
+            $successmessage = true;
+
+        }elseif ($gt->rowCount()<=0) {
+            $errormessage = true;
+
+        }
+    }
+?>
+
 <!doctype html>
 <html lang="fa">
 
@@ -38,7 +62,7 @@
                     <div class="container">
                         <ul class="navbar-nav">
                             <li class="nav-item dropdown">
-                                <a style="color:#333; padding-left:35px; margin-top -50px;" class="nav-link " href="#" role="button"
+                                <a style="color:#333; padding-left:35px; margin-top: -50px;" class="nav-link " href="#" role="button"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                                     style="color: #fff">
 
@@ -159,15 +183,16 @@
                 </div>
 
                 <div class="input-register">
-                    
-                    <input type="email" style="display: block; width: 385px;" placeholder="ایمیل را وارد کنید">
-                    <input type="password" style="display: block; width: 385px;" placeholder="رمز عبور را وارد کنید">
+                    <form action="">
+                        <input type="email" name="email" style="display: block; width: 385px;" placeholder="ایمیل را وارد کنید">
+                        <input type="password" name="password" style="display: block; width: 385px;" placeholder="رمز عبور را وارد کنید">
+                        <input type="submit" name="sub" value="ورود به سایت" class="btn btn-success">
+                    </form>
                     
                 </div>
 
                 <div class="footer-register">
-
-                    <a href="" class="btn btn-info submit-reg">ورود به سایت</a>
+            
                     <a href="" class="btn-reg">ورود به سایت</a>
                     <a href="" class="btn-reg">فراموشی رمز عبور</a>
 
