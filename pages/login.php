@@ -183,7 +183,7 @@
                 </div>
 
                 <div class="input-register">
-                    <form action="">
+                    <form action="" method="post">
                         <input type="email" name="email" style="display: block; width: 385px;" placeholder="ایمیل را وارد کنید">
                         <input type="password" name="password" style="display: block; width: 385px;" placeholder="رمز عبور را وارد کنید">
                         <input type="submit" name="sub" value="ورود به سایت" class="btn btn-success">
@@ -292,9 +292,9 @@
 
     <img src="image/teleg2.png" alt="" class="fixed-bottom d-none d-lg-block">
 
-    <!-- toaster js library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-    <!-- toaster js library -->
+    <!-- sweetaler js library -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- sweetaler js library -->
     
 </body>
 
@@ -302,19 +302,48 @@
 <?php  if($errormessage){  ?>
      
      <script>
-             toastr.error(' ایمیل یا رمز عبور  اشتباه است.', 'پیغام خطا')
+             const ToastErr = Swal.mixin({
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.onmouseenter = Swal.stopTimer;
+                    toast.onmouseleave = Swal.resumeTimer;
+                }
+                });
+                ToastErr.fire({
+                icon: "error",
+                title: "ایمیل یا رمز عبور اشتباه است"
+                }); 
      </script>
  
  
  <?php  } ?>
  
  
+
  
   <!-- پیغام موفقیت آمیز بودن ورود کاربر -->
  <?php  if($successmessage){  ?>
       
       <script>
-              toastr.success('شما با موفقیت وارد شدید.', 'پیغام موفقیت')
+              const Toast = Swal.mixin({
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.onmouseenter = Swal.stopTimer;
+                    toast.onmouseleave = Swal.resumeTimer;
+                }
+                });
+                Toast.fire({
+                icon: "success",
+                title: "شما با موفقیت وارد شدید"
+                });
       </script>
   
   
