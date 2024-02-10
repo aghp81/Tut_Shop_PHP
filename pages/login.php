@@ -291,6 +291,34 @@
     </script>
 
     <img src="image/teleg2.png" alt="" class="fixed-bottom d-none d-lg-block">
+
+    <!-- toaster js library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <!-- toaster js library -->
+    
 </body>
+
+<!-- پیغام خطای اشتباه بودن نام کاربری یا رمز عبور  -->
+<?php  if($errormessage){  ?>
+     
+     <script>
+             toastr.error(' ایمیل یا رمز عبور  اشتباه است.', 'پیغام خطا')
+     </script>
+ 
+ 
+ <?php  } ?>
+ 
+ 
+ 
+  <!-- پیغام موفقیت آمیز بودن ورود کاربر -->
+ <?php  if($successmessage){  ?>
+      
+      <script>
+              toastr.success('شما با موفقیت وارد شدید.', 'پیغام موفقیت')
+      </script>
+  
+  
+  <?php  } ?>
+
 
 </html>
