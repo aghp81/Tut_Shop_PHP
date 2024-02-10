@@ -15,6 +15,7 @@ require '../PHPMailer-master/src/SMTP.php';
 
     if(isset($_POST['sub'])){
         $email = $_POST['email'];
+        $active = rand(1000, 9999);
         $mail=new PHPMailer(true);
         $mail->IsSMTP();
             
@@ -46,9 +47,12 @@ try {
     // $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    //Optional name
 
     //Content
-    $mail->isHTML(true);                                  //Set email format to HTML
-    $mail->Subject = 'Here is the subject';
-    $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
+    $mail->isHTML(true); //Set email format to HTML
+    $mail->CharSet="UTF-8";
+    $mail->ContentType="text/htm";
+    $mail->Subject = 'کد فعالسازی';
+    $mail->MsgHTML("<h2>فعالسازی</h2>");
+    $mail->Body    = $active;
     $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
     $mail->send();
