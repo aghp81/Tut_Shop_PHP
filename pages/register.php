@@ -32,72 +32,82 @@ require '../PHPMailer-master/src/SMTP.php';
 
             if(!empty($mail) & !empty($pass)){
                 if($pass == $repass){
-                    $gt = $conn->prepare("INSERT INTO user SET username=?, phone=?, email=?, password=?, active=?");
-                    $gt->bindValue(1 , $username);
-                    $gt->bindValue(2 , $phone);
-                    $gt->bindValue(3 , $mail);
-                    $gt->bindValue(4 , $pass);
-                    $gt->bindValue(5 , $active);
-                    $gt->execute();
+                    $result = $conn->prepare("SELECT * FROM user WHERE email = ?"); // کاربر با ایمیل تکراری ثبت نام نکند
+                    $result->bindValue(1, $mail);
+                    $result->execute();
+                    // اگر ایمیل از قبل وجود داشت
+                    if ($result->rowCount()>=1) {
+                        $hasemail = true;
+                        
+                    // اگر ایمیل وجود نداشت
+                    }elseif ($result->rowCount()<=0) {
+                        $gt = $conn->prepare("INSERT INTO user SET username=?, phone=?, email=?, password=?, active=?");
+                        $gt->bindValue(1 , $username);
+                        $gt->bindValue(2 , $phone);
+                        $gt->bindValue(3 , $mail);
+                        $gt->bindValue(4 , $pass);
+                        $gt->bindValue(5 , $active);
+                        $gt->execute();
 
-        
-
-                    $SuccessSubmit = true;
-                    header('Location:check.php?success=true');
-                }else{
-                    $ErrMsgRePass = true;
-                }
-                    
-                }else{
-                    $ErrReqEmailPass = true;
-                    
-                }
-
-                $email = $_POST['mail'];
-        $mail=new PHPMailer(true);
-        $mail->IsSMTP();
+                                    $SuccessSubmit = true;
+                                    header('Location:check.php?success=true');
+                                }else{
+                                    $ErrMsgRePass = true;
+                                }
+                                    
+                                }else{
+                                    $ErrReqEmailPass = true;
+                                    
+                                }
             
-        //Create an instance; passing `true` enables exceptions
-$mail = new PHPMailer(true);
+                    }
 
-try {
-    //Server settings
-    $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
-    $mail->isSMTP();                                            //Send using SMTP
-    $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
-    $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-    $mail->Username   = 'aghp81@gmail.com';                     //SMTP username
-    $mail->Password   = 'ivlqoescwfgfnibi';                               //SMTP password
-    $mail->SMTPSecure="tls";
-    $mail->Port=587;           //Enable implicit TLS encryption
-                                     //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+                    $email = $_POST['mail'];
+                        $mail=new PHPMailer(true);
+                        $mail->IsSMTP();
+                            
+                        //Create an instance; passing `true` enables exceptions
+                $mail = new PHPMailer(true);
 
-    //Recipients
-    $mail->SetFrom("laraveldevphp@gmail.com");
-    $mail->addAddress($email);     //Add a recipient
-    $mail->addAddress($email);               //Name is optional
-    $mail->addReplyTo('laraveldevphp@gmail.com', 'Information');
-    $mail->addCC('laraveldevphp@gmail.com');
-    $mail->addBCC('laraveldevphp@gmail.com');
+                try {
+                    //Server settings
+                    // $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
+                    $mail->isSMTP();                                            //Send using SMTP
+                    $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
+                    $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+                    $mail->Username   = 'aghp81@gmail.com';                     //SMTP username
+                    $mail->Password   = 'ivlqoescwfgfnibi';                               //SMTP password
+                    $mail->SMTPSecure="tls";
+                    $mail->Port=587;           //Enable implicit TLS encryption
+                                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
-    //Attachments
-    // $mail->addAttachment('/var/tmp/file.tar.gz');         //Add attachments
-    // $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    //Optional name
+                    //Recipients
+                    $mail->SetFrom("laraveldevphp@gmail.com");
+                    $mail->addAddress($email);     //Add a recipient
+                    $mail->addAddress($email);               //Name is optional
+                    $mail->addReplyTo('laraveldevphp@gmail.com', 'Information');
+                    $mail->addCC('laraveldevphp@gmail.com');
+                    $mail->addBCC('laraveldevphp@gmail.com');
 
-    //Content
-    $mail->isHTML(true); //Set email format to HTML
-    $mail->CharSet="UTF-8";
-    $mail->ContentType="text/htm";
-    $mail->Subject = 'کد فعالسازی';
-    $mail->MsgHTML("<h2>فعالسازی</h2>");
-    $mail->Body    = $active;
-    $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+                    //Attachments
+                    // $mail->addAttachment('/var/tmp/file.tar.gz');         //Add attachments
+                    // $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    //Optional name
 
-    $mail->send();
-    echo 'پیام ارسال شد';
-} catch (Exception $e) {
-    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
-}
+                    //Content
+                    $mail->isHTML(true); //Set email format to HTML
+                    $mail->CharSet="UTF-8";
+                    $mail->ContentType="text/htm";
+                    $mail->Subject = 'کد فعالسازی';
+                    $mail->MsgHTML("<h2>فعالسازی</h2>");
+                    $mail->Body    = $active;
+                    $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+
+                    $mail->send();
+                    echo 'پیام ارسال شد';
+                } catch (Exception $e) {
+                    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+                }
+
                 
             }
 ?>
@@ -428,6 +438,16 @@ try {
      
      <script>
              toastr.success('ثبت اطلاعات با موفقیت انجام شد. رمز یکبار مصرف به ایمیل شما ارسال شد.', 'پیغام موفقیت')
+     </script>
+ 
+ 
+ <?php  } ?>
+
+<!-- پیغام خطای تکراری بودن ایمیل -->
+ <?php  if($hasemail){  ?>
+     
+     <script>
+             toastr.error('کاربری با این مشخصات قبلا ثبت شده است.', 'پیغام خطا')
      </script>
  
  
