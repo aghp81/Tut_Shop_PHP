@@ -51,18 +51,8 @@ require '../PHPMailer-master/src/SMTP.php';
 
                                     $SuccessSubmit = true;
                                     header('Location:check.php?success=true');
-                                }else{
-                                    $ErrMsgRePass = true;
-                                }
-                                    
-                                }else{
-                                    $ErrReqEmailPass = true;
-                                    
-                                }
-            
-                    }
-
-                    $email = $_POST['mail'];
+                        // ارسال ایمیل
+                        $email = $_POST['mail'];
                         $mail=new PHPMailer(true);
                         $mail->IsSMTP();
                             
@@ -103,12 +93,26 @@ require '../PHPMailer-master/src/SMTP.php';
                     $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
                     $mail->send();
-                    echo 'پیام ارسال شد';
+                    //echo 'پیام ارسال شد';
                 } catch (Exception $e) {
                     echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
                 }
 
-                
+                // ارسال ایمیل
+
+
+                                }else{
+                                    $ErrMsgRePass = true;
+                                }
+                                    
+                                }else{
+                                    $ErrReqEmailPass = true;
+                                    
+                                }
+            
+                    }
+
+                    
             }
 ?>
 
