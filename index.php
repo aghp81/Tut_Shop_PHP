@@ -42,16 +42,23 @@ echo $_SESSION['email'];
                 <div style="margin-left: -16px; margin-right: -22px;">
                     <div class="container">
                         <ul class="navbar-nav">
+
+                        <!-- اگر کاربر لاگین کرده بود -->
+                        <?php  if(isset($_SESSION['login'])){ ?> 
+                                
                             <li class="nav-item dropdown">
-                                <a style="color:#333; padding-left:35px; margin-top -50px;" class="nav-link " href="#" role="button"
+                                <a style="color:#333; padding-left:35px; margin-top: -50px;" class="nav-link " href="#" role="button"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                                     style="color: #fff">
 
                                     <svg width="0.8em" height="0.8em" viewBox="0 0 16 16" class="bi bi-caret-down-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
                                     </svg>
+                                    
+                                    <!-- نمایش آدرس ایمیل کاربر -->
+                                    <?php echo $_SESSION['email']; ?>
+                                
 
-                                     احمد رضایی
                                      <img src="image/profile.gif" style="margin-top:-10px;" class="rounded-circle" width="50" height="50" alt="">
                                 </a>
                                 <div class="dropdown-menu myaccount-dropdown dropdown-menu-right text-right"
@@ -97,6 +104,9 @@ echo $_SESSION['email'];
                                         خروج از حساب کاربری</a>
                                 </div>
                             </li>
+
+                                <?php  } ?>
+                                <!-- اگر کاربر لاگین کرده بود -->
                         </ul>
                     </div>
                 </div>
