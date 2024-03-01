@@ -1,4 +1,7 @@
-<?php  include"database/db.php";   ?>
+<?php  
+include"database/db.php";   
+echo $_SESSION['email'];
+?>
 
 <!doctype html>
 <html lang="fa">

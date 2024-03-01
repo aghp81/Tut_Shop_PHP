@@ -18,6 +18,7 @@ require '../PHPMailer-master/src/SMTP.php';
 $ErrReqEmailPass = "";
 $ErrMsgRePass = "";
 $SuccessSubmit = "";
+$hasemail = "";
 
 if (isset($_POST['submit'])) {
 
@@ -103,6 +104,14 @@ if (isset($_POST['submit'])) {
 
 
             $SuccessSubmit = true;
+
+            //  قبل از فرستادن کاربر به صفحه چک، ست کرن سشنها
+            $_SESSION['login'] = true; //  - چک کردن لاگین بودن کاربر -  
+            $_SESSION['username'] = $username; 
+            $_SESSION['phone'] = $phone; 
+            $_SESSION['email'] = $mail; 
+            $_SESSION['password'] = $pass; 
+            
             header('Location:check.php?success=true');
         }
     

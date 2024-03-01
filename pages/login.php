@@ -13,7 +13,19 @@
         $gt->execute();
 
         if ($gt->rowCount()>=1) {
-            $successmessage = true;
+            $row = $gt->fetch(PDO::FETCH_ASSOC);
+
+            // var_dump($row);
+            // die;
+
+            $_SESSION['login'] = true;
+            $_SESSION['id'] = $row['id'];
+            $_SESSION['email'] = $row['email'];
+            $_SESSION['password'] = $row['password'];
+            $_SESSION['role'] = $row['role'];
+            $_SESSION['status'] = $row['status'];
+            
+            header("Location:../index.php");
 
         }elseif ($gt->rowCount()<=0) {
             $errormessage = true;

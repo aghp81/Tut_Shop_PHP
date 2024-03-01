@@ -1,5 +1,12 @@
 <?php  
     include"../database/db.php";
+
+    // چک کردن لاگین بودن کاربر
+if (isset($_SESSION['login'])) {
+    echo $_SESSION['username'];
+    echo $_SESSION['password'];
+}
+
     $successCheck = "";
     $errorCheck = "";
 
@@ -18,6 +25,7 @@
         $gt->execute();
         if($gt->rowCount()>=1){
             $successCheck = true;
+            // header("Location:login.php");
         }elseif ($gt->rowCount()<=0) {
             $errorCheck = true;
         }
@@ -335,6 +343,7 @@
      
      <script>
              toastr.success('حساب کاربری شما با موفقیت فعال شد.', 'پیغام موفقیت')
+             //window.location.href='login.php';
      </script>
  
  
