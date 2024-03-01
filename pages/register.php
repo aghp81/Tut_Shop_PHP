@@ -32,7 +32,19 @@ if (isset($_POST['submit'])) {
 
     if (!empty($mail) & !empty($pass)) {
         if ($pass == $repass) {
-            $gt = $conn->prepare("INSERT INTO user SET username=?, phone=?, email=?, password=?, active=?");
+
+            // بررسی وجود ایمیل در دیتابیس 
+            $result = $conn->prepare("SELECT * FROM user WHERE email = ?");
+            $result->bindValue(1, $mail);
+            $result->execute();
+
+            // اگر ایمیل تکراری باشد
+            if ($result->rowCount()>=1) {
+                $hasemail = true;
+            // اگر ایمیل تکراری نباشد
+            }elseif ($result->rowCount()<=0) {
+                
+                $gt = $conn->prepare("INSERT INTO user SET username=?, phone=?, email=?, password=?, active=?");
             $gt->bindValue(1, $username);
             $gt->bindValue(2, $phone);
             $gt->bindValue(3, $mail);
@@ -40,7 +52,7 @@ if (isset($_POST['submit'])) {
             $gt->bindValue(5, $active);
             $gt->execute();
 
-            
+            // ارسال ایمیل کد فعالسازی
     $email = $_POST['mail'];
     $mail = new PHPMailer(true);
     $mail->IsSMTP();
@@ -87,9 +99,16 @@ if (isset($_POST['submit'])) {
         echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
     }
 
+            // ارسال ایمیل کد فعالسازی
+
+
             $SuccessSubmit = true;
             header('Location:check.php?success=true');
-        } else {
+        }
+    
+            }
+
+             else {
             $ErrMsgRePass = true;
         }
 
@@ -303,11 +322,17 @@ if (isset($_POST['submit'])) {
                             echo "پسورد با تکرار پسور مطابقت ندارد.";
                         } ?>
                     </p>
+                    <p style="color:red;">
+                        <?php if ($hasemail) {
+                            echo "کاربری با این آدرس ایمیل قبلا ثبت شده است.";
+                        } ?>
+                    </p>
                     <p style="color:green;">
                         <?php if ($SuccessSubmit) {
                             echo "ثبت اطلاعات با موفقیت انجام شد. رمز یکبار مصرف به ایمیل شما ارسال شد.";
                         } ?>
                     </p>
+                    
                     <!-- پیغام های خطا و موفقیت -->
 
                     <form method="POST" action="">
