@@ -1,6 +1,6 @@
 <?php  
-include"database/db.php";   
-echo $_SESSION['email'];
+include "database/db.php";   
+ 
 ?>
 
 <!doctype html>
@@ -156,6 +156,9 @@ echo $_SESSION['email'];
                             <a style="text-align: right;" class="dropmenu" href="#">آنریل انجین</a>
                             <a style="text-align: right; " class="dropmenu" href="#">جاوا</a>
                         </div>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="pages/logout.php" style="color: #fff;"> خروج   </a>
                     </li>
                 </ul>
             </div>
