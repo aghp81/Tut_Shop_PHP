@@ -108,7 +108,8 @@ include "database/db.php";
                                 <?php  }else{ ?>
                                 <!-- اگر کاربر لاگین نکرده بود -->
                                  
-                                <li><a href="pages/login.php">ورود</a></li>
+                                <li><a href="pages/login.php">ورود/</a></li>
+                                <li><a href="pages/register.php">ثبت نام</a></li>
                                 <?php  } ?> 
                         </ul>
                     </div>
