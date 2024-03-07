@@ -97,7 +97,7 @@ include "database/db.php";
                                         <circle cx="8" cy="8" r="8"/>
                                         </svg>
                                         تراکنش ها</a>
-                                    <a class="dropmenu" href="#">
+                                    <a class="dropmenu" href="pages/logout.php">
                                         <svg style="color: #6fc341; margin-left:2px;" width="0.4em" height="0.4em" viewBox="0 0 16 16" class="bi bi-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                         <circle cx="8" cy="8" r="8"/>
                                         </svg>
@@ -105,8 +105,11 @@ include "database/db.php";
                                 </div>
                             </li>
 
-                                <?php  } ?>
-                                <!-- اگر کاربر لاگین کرده بود -->
+                                <?php  }else{ ?>
+                                <!-- اگر کاربر لاگین نکرده بود -->
+                                 
+                                <li><a href="pages/login.php">ورود</a></li>
+                                <?php  } ?> 
                         </ul>
                     </div>
                 </div>
@@ -157,9 +160,13 @@ include "database/db.php";
                             <a style="text-align: right; " class="dropmenu" href="#">جاوا</a>
                         </div>
                     </li>
+                    <!-- اگر کاربر لاگین کرده بود -->
+                    <?php  if(isset($_SESSION['login'])){ ?> 
                     <li class="nav-item active">
                         <a class="nav-link" href="pages/logout.php" style="color: #fff;"> خروج   </a>
                     </li>
+                    <?php  } ?> 
+                    <!-- اگر کاربر لاگین کرده بود -->
                 </ul>
             </div>
         </div>
