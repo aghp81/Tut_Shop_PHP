@@ -63,14 +63,20 @@ include "database/db.php";
                                 </a>
                                 <div class="dropdown-menu myaccount-dropdown dropdown-menu-right text-right"
                                     aria-labelledby="navbarDropdown" style="margin-right:-40px;">
-                                    <span style="font-size:12px; font-weight:bold;"> موجودی  شما: <span style="color: #6fc341; font-size:12px; font-weight:bold;"> ۶۰۷,۴۰۰ تومان</span></span>
+                                    <span><?php echo $_SESSION['password']; ?></span>
                                     <hr>
                                     <a class="dropmenu" href="#">
                                         
                                         <svg style="color: #6fc341; margin-left:2px;" width="0.4em" height="0.4em" viewBox="0 0 16 16" class="bi bi-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                         <circle cx="8" cy="8" r="8"/>
                                         </svg>
-                                        مشاهده حساب کاربری
+                                        
+                                        <?php 
+                                            //بررسی نقش کاربر
+                                            if ($_SESSION['role'] == 1) {
+                                                echo "کاربر عادی";    
+                                            }else { echo "مدیر"; }  
+                                        ?>
                                     </a>
                                     <a class="dropmenu" href="#">
                                         <svg style="color: #6fc341; margin-left:2px;" width="0.4em" height="0.4em" viewBox="0 0 16 16" class="bi bi-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -96,7 +102,17 @@ include "database/db.php";
                                         <svg style="color: #6fc341; margin-left:2px;" width="0.4em" height="0.4em" viewBox="0 0 16 16" class="bi bi-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                         <circle cx="8" cy="8" r="8"/>
                                         </svg>
-                                        تراکنش ها</a>
+                                        <?php 
+                                            //بررسی فعال بودن کاربر
+                                            if ($_SESSION['status'] == 0){                                                
+                                        ?>
+                                        
+                                        <a href="" class="btn btn-danger">غیرفعال</a>
+
+                                        <?php  }else{ ?>
+                                            <a href="" class="btn btn-success">فعال</a>
+                                        <?php  } ?>
+                                    </a>
                                     <a class="dropmenu" href="pages/logout.php">
                                         <svg style="color: #6fc341; margin-left:2px;" width="0.4em" height="0.4em" viewBox="0 0 16 16" class="bi bi-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                         <circle cx="8" cy="8" r="8"/>
