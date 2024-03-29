@@ -10,26 +10,17 @@
                 <div class="content">
                     <div class="container">
 
+                        <!-- end row -->
                         <div class="row">
-
-
+                            <div class="card-box">
+                                <a href="" class="btn btn-success">ثبت</a>
+                            </div>
                         </div>
-     
                         <!-- end row -->
 
                     </div> <!-- container -->
 
                 </div> <!-- content -->
 
-                <footer class="footer">
-                     آقای ادمین2016 ©.
-                </footer>
-
-            </div>
-
-
-            <!-- ============================================================== -->
-            <!-- End Right content here -->
-            <!-- ============================================================== -->
 
 <?php  include "footer.php";   ?>
