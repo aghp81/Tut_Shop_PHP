@@ -167,9 +167,12 @@ include "database/db.php";
                             <?php  echo $menu['title'];   ?>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a style="text-align: right; " class="dropmenu" href="#"> یونیتی</a>
-                            <a style="text-align: right;" class="dropmenu" href="#">آنریل انجین</a>
-                            <a style="text-align: right; " class="dropmenu" href="#">جاوا</a>
+                            <?php  foreach ($menus as $ul) { if ($menu['id'] == $ul['z']) { ?>
+                                
+                                
+                                <a style="text-align: right; " class="dropmenu" href="#"> <?php  echo $ul['title'];  ?></a>
+                                
+                            <?php }}  ?>
                         </div>
                     </li>
                     <?php  }} //if & foreach  ?>
