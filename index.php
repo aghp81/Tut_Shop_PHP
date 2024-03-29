@@ -1,5 +1,10 @@
 <?php  
 include "database/db.php";   
+
+  // فچ کردن همه ردیف های جدول منو برای نمایش در منوها
+  $result = $conn->prepare("SELECT * FROM menu");
+  $result->execute();
+  $menus = $result->fetchAll(PDO::FETCH_ASSOC);
  
 ?>
 
@@ -151,27 +156,15 @@ include "database/db.php";
             <div class="container">
                 <ul class="navbar-nav">
                     <li class="nav-item d-block d-lg-none">
-                        <input type="search" class="searchbox-mobile" style="" placeholder="دنبال چی میگردی؟">
+                        <input type="search" class="searchbox-mobile" placeholder="دنبال چی میگردی؟">
                     </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#" style="color: #fff;"> برنامه نویسی</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" style="color: #fff;"> طراحی سایت</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#" style="color: #fff;"> گرافیک</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#" style="color: #fff;"> انیمیشن</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#" style="color: #fff;"> برنامه نویسی موبایل </a>
-                    </li>
-                    <li class="nav-item dropdown">
+
+                    <!-- نمایش منوهای سایت -->
+                    <?php  foreach ($menus as $menu) { if($menu['z'] == 0){ //فقط آیتم هایی که سرگروه هستند نمایش داده شود. ?>
+                        <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" style="color: #fff;"
                             role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            بازی سازی
+                            <?php  echo $menu['title'];   ?>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                             <a style="text-align: right; " class="dropmenu" href="#"> یونیتی</a>
@@ -179,6 +172,9 @@ include "database/db.php";
                             <a style="text-align: right; " class="dropmenu" href="#">جاوا</a>
                         </div>
                     </li>
+                    <?php  }} //if & foreach  ?>
+                    <!-- نمایش منوهای سایت -->
+
                     <!-- اگر کاربر لاگین کرده بود -->
                     <?php  if(isset($_SESSION['login'])){ ?> 
                     <li class="nav-item active">

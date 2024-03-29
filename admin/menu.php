@@ -94,7 +94,7 @@
                                                 <td><?= $menu['sort'];  ?></td>
                                                 <td>
                                                     <a href="editmenu.php?id=<?php echo $menu['id'] ?>" class="btn btn-warning">ویرایش</a>
-                                                    <a href="" class="btn btn-danger">حذف</a>
+                                                    <a href="deletemenu.php?id=<?php echo $menu['id'] ?>" class="btn btn-danger">حذف</a>
                                                 </td>
                                             </tr>
                                             <?php  } ?>
