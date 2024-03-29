@@ -82,14 +82,14 @@
                                                     <tr>
                                                 <th scope="row"><?= $num++;  ?></th>
                                                 <td><?= $menu['title'];  ?></td>
-                                                <td>
-                                                    <?php 
-                                                        // نمایش عنوان سرگروه به جای آی دی
-                                                        foreach ($menus as $item) {
-                                                            if ($menu['z'] == $item['id']) {
-                                                                echo $item['title'];
-                                                    }
-                                                }  ?>
+                                                <td><span class="label label-primary"><?php 
+                                                            // نمایش عنوان سرگروه به جای آی دی
+                                                            foreach ($menus as $item) {
+                                                                if ($menu['z'] == $item['id']) {
+                                                                    echo $item['title'];
+                                                        }
+                                                    }  ?></span>
+                                                    
                                                 </td>
                                                 <td><?= $menu['sort'];  ?></td>
                                                 <td>
