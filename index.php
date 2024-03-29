@@ -162,8 +162,8 @@ include "database/db.php";
                     <!-- نمایش منوهای سایت -->
                     <?php  foreach ($menus as $menu) { if($menu['z'] == 0){ //فقط آیتم هایی که سرگروه هستند نمایش داده شود. ?>
                         <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" style="color: #fff;"
-                            role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a href="" class="nav-link <?php  foreach ($menus as $z) { if($menu['id'] == $z['z']) { ?> dropdown-toggle <?php } } // اگر زیر گروه نداشت کلاس dropdown-toggle نمایش داده نشود ?>"  aria-haspopup="true" id="navbarDropdown" style="color: #fff;"
+                            role="button" data-toggle="dropdown" aria-expanded="false">
                             <?php  echo $menu['title'];   ?>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
