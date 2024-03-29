@@ -1,6 +1,6 @@
 <?php  
     //اگر کاربر ادمین نبود هدایت شود به صفحه اصلی سایت
-    include "database/db.php";
+    include "../database/db.php";
     if($_SESSION['role'] !== 2 ){
         header('Location:../index.php');
     } 
