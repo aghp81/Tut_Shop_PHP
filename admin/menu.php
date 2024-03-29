@@ -78,8 +78,8 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <?php                     foreach ($menus as $menu) { ?>
-                                                    <tr>
+                                            <?php foreach ($menus as $menu) { ?>
+                                                <tr>
                                                 <th scope="row"><?= $num++;  ?></th>
                                                 <td><?= $menu['title'];  ?></td>
                                                 <td><span class="label label-primary"><?php 
@@ -93,7 +93,7 @@
                                                 </td>
                                                 <td><?= $menu['sort'];  ?></td>
                                                 <td>
-                                                    <a href="" class="btn btn-warning">ویرایش</a>
+                                                    <a href="editmenu.php?id=<?php echo $menu['id'] ?>" class="btn btn-warning">ویرایش</a>
                                                     <a href="" class="btn btn-danger">حذف</a>
                                                 </td>
                                             </tr>
