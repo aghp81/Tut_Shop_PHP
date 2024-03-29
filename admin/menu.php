@@ -1,6 +1,8 @@
 <?php
   include "header.php";
 
+  $num = 1;
+
   // insert
   if (isset($_POST['sub'])) {
     $title = $_POST['title'];
@@ -19,6 +21,8 @@
   $result->execute();
   $menus = $result->fetchAll(PDO::FETCH_ASSOC);
 //   var_dump($menus);
+
+
 ?>
 
 
@@ -58,6 +62,49 @@
                                     </div>
 
                                 </form>
+                                
+                                <br>
+                                <br>
+                                <br>
+                                <div class="p-3">
+                                    <table class="table table-striped m-0">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>عنوان</th>
+                                                <th>سرگروه </th>
+                                                <th>اولویت بندی </th>
+                                                <th>عملیات  </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php                     foreach ($menus as $menu) { ?>
+                                                    <tr>
+                                                <th scope="row"><?= $num++;  ?></th>
+                                                <td><?= $menu['title'];  ?></td>
+                                                <td>
+                                                    <?php 
+                                                        // نمایش عنوان سرگروه به جای آی دی
+                                                        foreach ($menus as $item) {
+                                                            if ($menu['z'] == $item['id']) {
+                                                                echo $item['title'];
+                                                    }
+                                                }  ?>
+                                                </td>
+                                                <td><?= $menu['sort'];  ?></td>
+                                                <td>
+                                                    <a href="" class="btn btn-warning">ویرایش</a>
+                                                    <a href="" class="btn btn-danger">حذف</a>
+                                                </td>
+                                            </tr>
+                                            <?php  } ?>
+                                            
+                                        </tbody>
+                                    </table>
+                                </div>
+                                
+
+
                             </div>
                         </div>
                         <!-- end row -->
