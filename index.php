@@ -163,7 +163,8 @@ include "database/db.php";
                     <?php  foreach ($menus as $menu) { if($menu['z'] == 0){ //فقط آیتم هایی که سرگروه هستند نمایش داده شود. ?>
                         <li class="nav-item dropdown">
                         <a href="" class="nav-link <?php  foreach ($menus as $z) { if($menu['id'] == $z['z']) { ?> dropdown-toggle <?php } } // اگر زیر گروه نداشت کلاس dropdown-toggle نمایش داده نشود ?>"  aria-haspopup="true" id="navbarDropdown" style="color: #fff;"
-                            role="button" data-toggle="dropdown" aria-expanded="false">
+                            role="button" 
+                            <?php  foreach ($menus as $z) { if($menu['id'] == $z['z']) { ?> data-toggle="dropdown" <?php } } // اگر زیر گروه نداشت کلاس data-toggle نمایش داده نشود ?> aria-expanded="false">
                             <?php  echo $menu['title'];   ?>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
