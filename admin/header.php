@@ -53,7 +53,7 @@
 
                 <!-- LOGO -->
                 <div class="topbar-left">
-                    <a href="index.html" class="logo"><span>آقای<span>ادمین</span></span><i class="zmdi zmdi-layers"></i></a>
+                    <a href="index.php" class="logo"><span><?php echo $_SESSION['email']; ?><span>ادمین</span></span><i class="zmdi zmdi-layers"></i></a>
                 </div>
 
                 <!-- Button mobile view to collapse sidebar menu -->
@@ -125,7 +125,7 @@
                             </li>
 
                             <li>
-                                <a href="#" class="text-custom">
+                                <a href="../pages/logout.php" class="text-custom">
                                     <i class="zmdi zmdi-power"></i>
                                 </a>
                             </li>
@@ -139,7 +139,7 @@
                         	<li class="text-muted menu-title">دسته بندی ها</li>
 
                             <li>
-                                <a href="index.html" class="waves-effect active"><i class="zmdi zmdi-view-dashboard"></i> <span> داشبورد </span> </a>
+                                <a href="index.php" class="waves-effect active"><i class="zmdi zmdi-view-dashboard"></i> <span> داشبورد </span> </a>
                             </li>
 
                             <li>
