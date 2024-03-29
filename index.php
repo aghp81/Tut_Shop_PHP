@@ -2,7 +2,7 @@
 include "database/db.php";   
 
   // فچ کردن همه ردیف های جدول منو برای نمایش در منوها
-  $result = $conn->prepare("SELECT * FROM menu");
+  $result = $conn->prepare("SELECT * FROM menu ORDER BY sort ASC");
   $result->execute();
   $menus = $result->fetchAll(PDO::FETCH_ASSOC);
  
@@ -162,7 +162,7 @@ include "database/db.php";
                     <!-- نمایش منوهای سایت -->
                     <?php  foreach ($menus as $menu) { if($menu['z'] == 0){ //فقط آیتم هایی که سرگروه هستند نمایش داده شود. ?>
                         <li class="nav-item dropdown">
-                        <a href="" class="nav-link <?php  foreach ($menus as $z) { if($menu['id'] == $z['z']) { ?> dropdown-toggle <?php } } // اگر زیر گروه نداشت کلاس dropdown-toggle نمایش داده نشود ?>"  aria-haspopup="true" id="navbarDropdown" style="color: #fff;"
+                        <a href="https://google.com" class="nav-link <?php  foreach ($menus as $z) { if($menu['id'] == $z['z']) { ?> dropdown-toggle <?php } } // اگر زیر گروه نداشت کلاس dropdown-toggle نمایش داده نشود ?>"  aria-haspopup="true" id="navbarDropdown" style="color: #fff;"
                             role="button" 
                             <?php  foreach ($menus as $z) { if($menu['id'] == $z['z']) { ?> data-toggle="dropdown" <?php } } // اگر زیر گروه نداشت کلاس data-toggle نمایش داده نشود ?> aria-expanded="false">
                             <?php  echo $menu['title'];   ?>
