@@ -4,6 +4,15 @@
     if($_SESSION['role'] !== 2 ){
         header('Location:../index.php');
     } 
+
+    // هر صفحه ای که در آن بودیم کلاس اکتیو فعال شود
+    function active($currect_page){
+    $url_array =  explode('/', $_SERVER['REQUEST_URI']) ;
+    $url = end($url_array);  
+    if($currect_page == $url){
+        echo 'active'; //class name in css 
+    } 
+    }
 ?>
 
 
@@ -139,7 +148,11 @@
                         	<li class="text-muted menu-title">دسته بندی ها</li>
 
                             <li>
-                                <a href="index.php" class="waves-effect active"><i class="zmdi zmdi-view-dashboard"></i> <span> داشبورد </span> </a>
+                                <a href="index.php" class="<?php active('index.php');?> waves-effect "><i class="zmdi zmdi-view-dashboard"></i> <span> داشبورد </span> </a>
+                            </li>
+
+                            <li>
+                                <a href="menu.php" class="waves-effect <?php active('menu.php');?>"><i class="zmdi zmdi-menu"></i> <span> منوها </span> </a>
                             </li>
 
                             <li>
