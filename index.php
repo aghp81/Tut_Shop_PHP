@@ -75,7 +75,9 @@ include "database/db.php";
                                             //بررسی نقش کاربر
                                             if ($_SESSION['role'] == 1) {
                                                 echo "کاربر عادی";    
-                                            }else { echo "مدیر"; }  
+                                            }else{ 
+                                                echo "مدیر"; 
+                                            }  
                                         ?>
                                     </a>
                                     <a class="dropmenu" href="#">
@@ -83,21 +85,21 @@ include "database/db.php";
                                             <circle cx="8" cy="8" r="8"/>
                                         </svg>
                                         ویرایش اطلاعات حساب </a>
-                                    <a class="dropmenu" href="#">
-                                        <svg style="color: #6fc341; margin-left:2px;" width="0.4em" height="0.4em" viewBox="0 0 16 16" class="bi bi-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                            <circle cx="8" cy="8" r="8"/>
-                                        </svg>
-                                        مشاهده سفارشات</a>
-                                    <a class="dropmenu" href="#">
-                                        <svg style="color: #6fc341; margin-left:2px;" width="0.4em" height="0.4em" viewBox="0 0 16 16" class="bi bi-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                        <circle cx="8" cy="8" r="8"/>
-                                        </svg>
-                                        فراموشی رمز عبور </a>
-                                    <a class="dropmenu" href="#">
-                                        <svg style="color: #6fc341; margin-left:2px;" width="0.4em" height="0.4em" viewBox="0 0 16 16" class="bi bi-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                        <circle cx="8" cy="8" r="8"/>
-                                        </svg>
-                                        کیف پول من </a>
+                                    
+                                        
+                                        <?php 
+                                            //اگر کاربر  مدیر بود بتواند ببیند
+                                            if ($_SESSION['role'] == 2) { ?>
+
+                                                <a class="dropmenu" href="admin">
+                                                <svg style="color: #6fc341; margin-left:2px;" width="0.4em" height="0.4em" viewBox="0 0 16 16" class="bi bi-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                    <circle cx="8" cy="8" r="8"/>
+                                                </svg>
+                                                پنل ادمین
+                                            </a>
+
+                                        <?php  }  ?>
+                                    
                                     <a class="dropmenu" href="#"> 
                                         <svg style="color: #6fc341; margin-left:2px;" width="0.4em" height="0.4em" viewBox="0 0 16 16" class="bi bi-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                         <circle cx="8" cy="8" r="8"/>
