@@ -156,6 +156,10 @@
                             </li>
 
                             <li>
+                                <a href="course.php" class="waves-effect <?php active('course.php');?>"><i class="zmdi zmdi-collection-video"></i> <span>مدیریت دوره ها </span> </a>
+                            </li>
+
+                            <li>
                                 <a href="typography.html" class="waves-effect"><i class="zmdi zmdi-format-underlined"></i> <span> نوشته ها </span> </a>
                             </li>
 
