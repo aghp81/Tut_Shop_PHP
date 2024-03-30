@@ -8,11 +8,13 @@
     $title = $_POST['title'];
     $z = $_POST['z'];
     $sort = $_POST['sort'];
+    $src = $_POST['src'];
 
-    $result = $conn->prepare('INSERT INTO menu SET title=?, z=?, sort=?');
+    $result = $conn->prepare('INSERT INTO menu SET title=?, z=?, sort=?, src?');
     $result->bindValue(1, $title);
     $result->bindValue(2, $z);
     $result->bindValue(3, $sort);
+    $result->bindValue(4, $src);
     $result->execute();
   }
 
@@ -58,6 +60,10 @@
                                     </div>
 
                                     <div class="form-group">
+                                        <input type="text" name="src" class="form-control mt-3" placeholder="آدرس ">
+                                    </div>
+
+                                    <div class="form-group">
                                         <input type="submit" name="sub" class="btn btn-success" value="افزودن">
                                     </div>
 
@@ -74,6 +80,7 @@
                                                 <th>عنوان</th>
                                                 <th>سرگروه </th>
                                                 <th>اولویت بندی </th>
+                                                <th>آدرس  </th>
                                                 <th>عملیات  </th>
                                             </tr>
                                         </thead>
@@ -92,6 +99,7 @@
                                                     
                                                 </td>
                                                 <td><?= $menu['sort'];  ?></td>
+                                                <td><?= $menu['src'];  ?></td>
                                                 <td>
                                                     <a href="editmenu.php?id=<?php echo $menu['id'] ?>" class="btn btn-warning">ویرایش</a>
                                                     <a href="deletemenu.php?id=<?php echo $menu['id'] ?>" class="btn btn-danger">حذف</a>

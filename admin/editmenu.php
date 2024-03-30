@@ -8,12 +8,14 @@
     $title = $_POST['title'];
     $z = $_POST['z'];
     $sort = $_POST['sort'];
+    $src = $_POST['src'];
 
-    $result = $conn->prepare('UPDATE menu SET title=?, z=?, sort=? WHERE id=?');
+    $result = $conn->prepare('UPDATE menu SET title=?, z=?, sort=?, src=? WHERE id=?');
     $result->bindValue(1, $title);
     $result->bindValue(2, $z);
     $result->bindValue(3, $sort);
-    $result->bindValue(4, $_GET['id']);
+    $result->bindValue(4, $src);
+    $result->bindValue(5, $_GET['id']);
     $result->execute();
 
     header("Location: menu.php");
@@ -74,6 +76,10 @@ $itemmenu = $result->fetch(PDO::FETCH_ASSOC);
 
                                     <div class="form-group">
                                         <input type="number" name="sort" class="form-control mt-3" value="<?= $itemmenu['sort'] ?>">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <input type="text" name="src" class="form-control mt-3" value="<?= $itemmenu['src'] ?>">
                                     </div>
 
                                     <div class="form-group">

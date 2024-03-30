@@ -162,7 +162,7 @@ include "database/db.php";
                     <!-- نمایش منوهای سایت -->
                     <?php  foreach ($menus as $menu) { if($menu['z'] == 0){ //فقط آیتم هایی که سرگروه هستند نمایش داده شود. ?>
                         <li class="nav-item dropdown">
-                        <a href="https://google.com" class="nav-link <?php  foreach ($menus as $z) { if($menu['id'] == $z['z']) { ?> dropdown-toggle <?php } } // اگر زیر گروه نداشت کلاس dropdown-toggle نمایش داده نشود ?>"  aria-haspopup="true" id="navbarDropdown" style="color: #fff;"
+                        <a href="<?php  echo $menu['src']; ?>" class="nav-link <?php  foreach ($menus as $z) { if($menu['id'] == $z['z']) { ?> dropdown-toggle <?php } } // اگر زیر گروه نداشت کلاس dropdown-toggle نمایش داده نشود ?>"  aria-haspopup="true" id="navbarDropdown" style="color: #fff;"
                             role="button" 
                             <?php  foreach ($menus as $z) { if($menu['id'] == $z['z']) { ?> data-toggle="dropdown" <?php } } // اگر زیر گروه نداشت کلاس data-toggle نمایش داده نشود ?> aria-expanded="false">
                             <?php  echo $menu['title'];   ?>
@@ -171,7 +171,7 @@ include "database/db.php";
                             <?php  foreach ($menus as $ul) { if ($menu['id'] == $ul['z']) { ?>
                                 
                                 
-                                <a style="text-align: right; " class="dropmenu" href="#"> <?php  echo $ul['title'];  ?></a>
+                                <a style="text-align: right; " class="dropmenu" href="<?php  echo $ul['src']; ?>"> <?php  echo $ul['title'];  ?></a>
                                 
                             <?php }}  ?>
                         </div>
