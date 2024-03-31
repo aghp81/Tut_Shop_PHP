@@ -36,20 +36,30 @@
                         <!-- end row -->
                         <div class="row">
                             <div class="card-box">
-                                صفحه منو
+                                <h3 class="mb-2">افزودن دوره آموزشی</h3>
 
-                                <form action="" method="POST" class="form-inline">
-                                    <div class="form-group">
-                                        <input type="text" name="title" class="form-control mt-3" placeholder="عنوان منو">
-                                    </div>
+                                <div class="row">
+                                    <form action="" method="POST" class="col-lg-9">
+                                        <div class="form-group">
+                                        <label for="" class="mt-3">عنوان دوره آموزشی</label>
+                                            <input type="text" name="title" class="form-control mt-3">
+                                        </div>
 
-                                    
+                                        <div class="form-group">
+                                            <label for="">توضیحات</label>
+                                            <div id="editor">توضیحات</div>
+                                        </div>
 
-                                    <div class="form-group">
-                                        <input type="submit" name="sub" class="btn btn-success" value="افزودن">
-                                    </div>
+                                        
 
-                                </form>
+                                        
+
+                                        <div class="form-group">
+                                            <input type="submit" name="sub" class="btn btn-success" value="افزودن">
+                                        </div>
+
+                                    </form>
+                                </div>
                                 
                                 
                                 </div>

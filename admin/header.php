@@ -40,6 +40,10 @@
         <link href="assets/css/menu.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
 
+        <!-- ckeditor5 -->
+        <link rel="stylesheet" href="../script/ckeditor5/ckeditor5.css">
+
+        
         <!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -48,6 +52,8 @@
         <![endif]-->
 
         <script src="assets/js/modernizr.min.js"></script>
+
+        
 
     </head>
 

@@ -120,5 +120,10 @@
         <script src="assets/js/jquery.core.js"></script>
         <script src="assets/js/jquery.app.js"></script>
 
+        <!-- ckeditor5 -->
+        
+        <script src="https://cdn.ckeditor.com/ckeditor5/41.2.1/super-build/ckeditor.js"></script>
+        <script src="../script/ckeditor5/ckeditor5.js"></script>
+
     </body>
 </html>
