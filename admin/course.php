@@ -47,7 +47,8 @@
 
                                         <div class="form-group">
                                             <label for="">توضیحات</label>
-                                            <div id="editor">توضیحات</div>
+                                            <textarea name="my" id="editor" cols="30" rows="10" class="form-control mt-3" placeholder="توضیحات"></textarea>
+                                            
                                         </div>
 
                                         
