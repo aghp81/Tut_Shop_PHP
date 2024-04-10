@@ -174,8 +174,8 @@ function test_input($data) {
                                                 <td><?= jdate('Y-m-d');  ?></td>
 
                                                 <td>
-                                                    <a href="editmenu.php?id=<?php echo $post['id'] ?>" class="btn btn-warning">ویرایش</a>
-                                                    <a href="deletemenu.php?id=<?php echo $post['id'] ?>" class="btn btn-danger">حذف</a>
+                                                    <a href="editcourse.php?id=<?php echo $post['id'] ?>" class="btn btn-warning">ویرایش</a>
+                                                    <a href="deletecourse.php?id=<?php echo $post['id'] ?>" class="btn btn-danger">حذف</a>
                                                 </td>
                                             </tr>
                                             <?php  } ?>
