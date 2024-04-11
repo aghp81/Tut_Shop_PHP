@@ -246,11 +246,13 @@ function limit_words($string, $word_limit)
             <div class="col-12 col-md-6 col-lg-3">
                 <a href="">
                     <div class="image-item">
-                        <img src="<?=  $post['image']; ?>" width="100%" alt="">
+                        <a href="pages/singlepage.php?course=<?=  $post['slug']  ?>">
+                            <img src="<?=  $post['image']; ?>" width="100%" alt="">
+                        </a>
                     </div>
                     <div class="caption-item">
                         <div class="title-item">
-                            <a href=""><span> <?=  $post['title']; ?></span></a>
+                            <a href="pages/singlepage.php?course=<?=  $post['slug']  ?>"><span> <?=  $post['title']; ?></span></a>
                         </div>
 
                         <div class="cap-item">
