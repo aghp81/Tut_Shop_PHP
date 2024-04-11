@@ -1,6 +1,13 @@
 <?php  
 include "database/db.php";   
 
+// محدود کردن تعداد کلمات توضیحات پست
+function limit_words($string, $word_limit)
+{
+    $words = explode(" ",$string);
+    return implode(" ",array_splice($words,0,$word_limit));
+}
+
   // فچ کردن همه ردیف های جدول منو برای نمایش در منوها
   $result = $conn->prepare("SELECT * FROM menu ORDER BY sort ASC");
   $result->execute();
@@ -247,7 +254,7 @@ include "database/db.php";
                         </div>
 
                         <div class="cap-item">
-                            <p<?=  $post['content']; ?></p>
+                            <p><?= limit_words($post['content'], 20) ; ?></p>
                         </div>
 
                         <div class="like-item">
