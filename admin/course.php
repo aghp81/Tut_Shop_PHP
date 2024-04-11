@@ -170,8 +170,8 @@ function test_input($data) {
                                                     echo "پیشرفته";
                                                 }?>
                                                 </td>
-                                                <td><?= jdate('Y-m-d', );  ?></td>
-                                                <td><?= jdate('Y-m-d');  ?></td>
+                                                <td><?= jdate('Y-m-d', $post['create_date']);  ?></td>
+                                                <td><?= jdate('Y-m-d', $post['update_date']);  ?></td>
 
                                                 <td>
                                                     <a href="editcourse.php?id=<?php echo $post['id'] ?>" class="btn btn-warning">ویرایش</a>
