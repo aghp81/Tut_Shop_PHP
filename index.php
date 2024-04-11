@@ -5,6 +5,14 @@ include "database/db.php";
   $result = $conn->prepare("SELECT * FROM menu ORDER BY sort ASC");
   $result->execute();
   $menus = $result->fetchAll(PDO::FETCH_ASSOC);
+
+    // فچ کردن همه ردیف های جدول کورس برای نمایش در دوره ها در صفحه اصلی
+    $posts = $conn->prepare("SELECT * FROM course");
+    $posts->execute();
+    $posts = $posts->fetchAll(PDO::FETCH_ASSOC);
+  //   var_dump($menus);
+  
+  
  
 ?>
 
