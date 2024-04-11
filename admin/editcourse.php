@@ -4,7 +4,7 @@
   $successadd = null;
   $id = $_GET['id'];
   $titleErr = $contentErr = $imagetErr = "";
-  $title= $content = $image = $tag = $slug =  $value = $level = "";
+  $title= $content = $image = $tag = $slug =  $value = $level = $tagErr = $valueErr =  "";
 
 
   // insert
@@ -25,6 +25,10 @@
         $contentErr = "توضیحات دوره الزامی است.";
     }elseif(empty($_POST['image'])) {
         $imagetErr = "تصویر دوره الزامی است.";
+    }elseif(empty($_POST['tag'])) {
+        $tagErr = "برچسب دوره الزامی است.";
+    }elseif(empty($_POST['value'])) {
+        $valueErr = "قیمت دوره الزامی است.";
     }else{
     
     $result = $conn->prepare('UPDATE  course SET title=?, content=?, image=?, tag=?, slug=?, value=?, level=?, update_date=? WHERE id=?');
@@ -110,6 +114,7 @@ function test_input($data) {
                                         <div class="form-group">
                                             <label for="" class="mt-3">  برچسب ها</label>
                                             <input type="text" name="tag" class="form-control mt-3" value="<?= $post['tag']; ?>">
+                                            <span class="error"> <?php echo $tagErr; ?></span>
                                         </div>
 
                                         <div class="form-group">
@@ -120,6 +125,7 @@ function test_input($data) {
                                         <div class="form-group">
                                             <label for="" class="mt-3">قیمت</label>
                                             <input type="text" name="value" class="form-control mt-3" value="<?= $post['value']; ?>">
+                                            <span class="error"> <?php echo $valueErr; ?></span>
                                         </div>
 
                                         <div class="form-group">
