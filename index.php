@@ -265,7 +265,7 @@ include "database/db.php";
                             </span>
 
                             <span class="shop-item">
-                                ۱۲۵۰۰۰ تومان
+                            <?=  $post['value']; ?> تومان
                             </span>
                         </div>
                     </div>
