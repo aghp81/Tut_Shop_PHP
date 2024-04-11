@@ -19,6 +19,7 @@
     $slug = $_POST['slug'];
     $value = $_POST['value'];
     $level = $_POST['level'];
+    $status = $_POST['status'];
     
     if (empty($_POST['title'])) {
         $titleErr = "عنوان دوره الزامی است.";
@@ -28,7 +29,7 @@
         $imagetErr = "تصویر دوره الزامی است.";
     }else{
     
-    $result = $conn->prepare('INSERT INTO course SET title=?, content=?, image=?, tag=?, slug=?, value=?, level=?, create_date=?, update_date=?');
+    $result = $conn->prepare('INSERT INTO course SET title=?, content=?, image=?, tag=?, slug=?, value=?, level=?, create_date=?, update_date=?, status=?');
     $result->bindValue(1, $title);
     $result->bindValue(2, $content);
     $result->bindValue(3, $image);
@@ -38,6 +39,7 @@
     $result->bindValue(7, $level);
     $result->bindValue(8, time());
     $result->bindValue(9, time());
+    $result->bindValue(10, $status);
     //var_dump($result); die;
     $result->execute();
     $successadd = true;
@@ -128,9 +130,19 @@ function test_input($data) {
                                                 <option value="3">پیشرفته</option>
                                             </select>
                                         </div>
+                                        <br>
+                                        <div class="form-check mt-3">
+                                            <label for="" class="mt-3">وضعیت دوره</label>
+                                            <br>
+                                            <input type="radio" name="status" class="form-check-input"  value="1">
+                                            <label for="" class="form-check-label">فعال </label>
+                                                                                       
+                                            <input type="radio" name="status" class="form-check-input"  value="0" checked>
+                                            <label for="" class="form-check-label">غیر فعال </label>
+                                        </div>
 
-
-                                        <div class="form-group">
+                                        <br>
+                                        <div class="form-group mt-4">
                                             <input type="submit" name="sub" class="btn btn-success" value="افزودن">
                                         </div>
 
