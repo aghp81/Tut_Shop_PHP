@@ -18,6 +18,8 @@
     $slug = $_POST['slug'];
     $value = $_POST['value'];
     $level = $_POST['level'];
+    $status = $_POST['status'];
+
     
     if (empty($_POST['title'])) {
         $titleErr = "عنوان دوره الزامی است.";
@@ -31,7 +33,8 @@
         $valueErr = "قیمت دوره الزامی است.";
     }else{
     
-    $result = $conn->prepare('UPDATE  course SET title=?, content=?, image=?, tag=?, slug=?, value=?, level=?, update_date=? WHERE id=?');
+    $result = $conn->prepare('UPDATE  course SET title=?, content=?, image=?, tag=?, slug=?, value=?, level=?, update_date=?, status=? WHERE id=?');
+
     $result->bindValue(1, $title);
     $result->bindValue(2, $content);
     $result->bindValue(3, $image);
@@ -40,7 +43,8 @@
     $result->bindValue(6, $value);
     $result->bindValue(7, $level);
     $result->bindValue(8, time());
-    $result->bindValue(9, $id);
+    $result->bindValue(9, $status);
+    $result->bindValue(10, $id);
     //var_dump($result); die;
     $result->execute();
     $successadd = true;
@@ -136,6 +140,19 @@ function test_input($data) {
                                                 <option value="3" <?php if($post['level'] == 3) : ?> selected <?php  endif; ?>>پیشرفته</option>
                                             </select>
                                         </div>
+
+                                        <br>
+                                        <div class="form-check mt-3">
+                                            <label for="" class="mt-3">وضعیت دوره</label>
+                                            <br>
+                                            <input type="radio" name="status" class="form-check-input"  value="1" <?php if($post['status'] == 1) : ?> checked <?php  endif; ?>>
+                                            <label for="" class="form-check-label">فعال </label>
+                                                                                       
+                                            <input type="radio" name="status" class="form-check-input"  value="0" <?php if($post['status'] == 0) : ?> checked <?php  endif; ?>>
+                                            <label for="" class="form-check-label">غیر فعال </label>
+                                        </div>
+
+                                        <br>
 
 
                                         <div class="form-group">
