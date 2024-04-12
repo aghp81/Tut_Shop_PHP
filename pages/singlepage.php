@@ -1,3 +1,21 @@
+<?php
+    include "../database/db.php";
+    include "../script/jdf.php";
+    $course = $_GET['course'];
+
+    $result = $conn->prepare("SELECT * FROM course WHERE slug=?");
+    $result->bindValue(1, $course);
+    $result->execute();
+    $post = $result->fetch(PDO::FETCH_ASSOC);
+    //var_dump($post);
+
+    // فچ کردن همه ردیف های جدول منو برای نمایش در منوها
+  $result = $conn->prepare("SELECT * FROM menu ORDER BY sort ASC");
+  $result->execute();
+  $menus = $result->fetchAll(PDO::FETCH_ASSOC);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,42 +23,136 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>عنوان دوره</title>
+    <title><?=  $post['title'] ?> </title>
 
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/style.css">
 
 </head>
 
-<body style="background-color: #f1f1f1;">
+
+<body>
+
     <!-- Top Header -->
     <div class="container top-header">
-        <img src="../image/logo.svg" alt="logo header" width="80px">
+        <img src="image/logo.svg" alt="logo header" width="80px">
 
         <!-- Search Box -->
         <div class="search-box d-none d-lg-flex">
             <div class="input-group md-form form-sm form-1 pl-0">
-                <input class="form-control my-0 py-1" type="text" placeholder="دنبال چه آموزشی می گردی؟"
-                    aria-label="Search">
+                <input class="form-control my-0 py-1" type="text" placeholder="دنبال چه آموزشی می گردی؟" aria-label="Search">
                 <div class="input-group-prepend" style="font-size:16px;">
                     <span style="background-color: #007bff;" class="input-group-text purple lighten-3" id="basic-text1">
-                        <svg style="color:#fff;" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                            fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                            <path
-                                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                        <svg style="color:#fff;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
                         </svg>
                     </span>
                 </div>
-
+                
             </div>
         </div>
-        <!-- Search Box -->
-
+         <!-- Search Box -->
+        
+        <!-- ورود/ثبت نام -->
         <div class="instagram-icon">
-            <a href=""><img src="../image/instagram.png" alt="logo header"></a>
-            <a href=""><img src="../image/telegram.png" alt="logo header"></a>
-            <a href=""><img src="../image/youtube.png" alt="logo header"></a>
+            <nav class="navbar navbar-expand-lg" style="width: 100%; direction:ltr;">
+                <div style="margin-left: -16px; margin-right: -22px;">
+                    <div class="container">
+                        <ul class="navbar-nav">
+
+                        <!-- اگر کاربر لاگین کرده بود -->
+                        <?php  if(isset($_SESSION['login'])){ ?> 
+                                
+                            <li class="nav-item dropdown">
+                                <a style="color:#333; padding-left:35px; margin-top: -50px;" class="nav-link " href="#" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                    style="color: #fff">
+
+                                    <svg width="0.8em" height="0.8em" viewBox="0 0 16 16" class="bi bi-caret-down-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+                                    </svg>
+                                    
+                                    <!-- نمایش آدرس ایمیل کاربر -->
+                                    <?php echo $_SESSION['email']; ?>
+                                
+
+                                     <img src="image/profile.gif" style="margin-top:-10px;" class="rounded-circle" width="50" height="50" alt="">
+                                </a>
+                                <div class="dropdown-menu myaccount-dropdown dropdown-menu-right text-right"
+                                    aria-labelledby="navbarDropdown" style="margin-right:-40px;">
+                                    <span><?php echo $_SESSION['password']; ?></span>
+                                    <hr>
+                                    <a class="dropmenu" href="#">
+                                        
+                                        <svg style="color: #6fc341; margin-left:2px;" width="0.4em" height="0.4em" viewBox="0 0 16 16" class="bi bi-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="8" cy="8" r="8"/>
+                                        </svg>
+                                        
+                                        <?php 
+                                            //بررسی نقش کاربر
+                                            if ($_SESSION['role'] == 1) {
+                                                echo "کاربر عادی";    
+                                            }else{ 
+                                                echo "مدیر"; 
+                                            }  
+                                        ?>
+                                    </a>
+                                    <a class="dropmenu" href="#">
+                                        <svg style="color: #6fc341; margin-left:2px;" width="0.4em" height="0.4em" viewBox="0 0 16 16" class="bi bi-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="8" cy="8" r="8"/>
+                                        </svg>
+                                        ویرایش اطلاعات حساب </a>
+                                    
+                                        
+                                        <?php 
+                                            //اگر کاربر  مدیر بود بتواند ببیند
+                                            if ($_SESSION['role'] == 2) { ?>
+
+                                                <a class="dropmenu" href="admin">
+                                                <svg style="color: #6fc341; margin-left:2px;" width="0.4em" height="0.4em" viewBox="0 0 16 16" class="bi bi-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                    <circle cx="8" cy="8" r="8"/>
+                                                </svg>
+                                                پنل ادمین
+                                            </a>
+
+                                        <?php  }  ?>
+                                    
+                                    <a class="dropmenu" href="#"> 
+                                        <svg style="color: #6fc341; margin-left:2px;" width="0.4em" height="0.4em" viewBox="0 0 16 16" class="bi bi-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="8" cy="8" r="8"/>
+                                        </svg>
+                                        <?php 
+                                            //بررسی فعال بودن کاربر
+                                            if ($_SESSION['status'] == 0){                                                
+                                        ?>
+                                        
+                                        <a href="" class="btn btn-danger">غیرفعال</a>
+
+                                        <?php  }else{ ?>
+                                            <a href="" class="btn btn-success">فعال</a>
+                                        <?php  } ?>
+                                    </a>
+                                    <a class="dropmenu" href="logout.php">
+                                        <svg style="color: #6fc341; margin-left:2px;" width="0.4em" height="0.4em" viewBox="0 0 16 16" class="bi bi-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="8" cy="8" r="8"/>
+                                        </svg>
+                                        خروج از حساب کاربری</a>
+                                </div>
+                            </li>
+
+                                <?php  }else{ ?>
+                                <!-- اگر کاربر لاگین نکرده بود -->
+                                 
+                                <li><a href="pages/login.php">ورود/</a></li>
+                                <li><a href="pages/register.php">ثبت نام</a></li>
+                                <?php  } ?> 
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
         </div>
+        <!-- ورود/ثبت نام -->
     </div>
 
 
@@ -52,35 +164,40 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" style="background-color: #333;">
             <div class="container">
                 <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#"> برنامه نویسی</a>
+                    <li class="nav-item d-block d-lg-none">
+                        <input type="search" class="searchbox-mobile" placeholder="دنبال چی میگردی؟">
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"> طراحی سایت</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#"> گرافیک</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#"> انیمیشن</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#"> برنامه نویسی موبایل </a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            بازی سازی
+
+                    <!-- نمایش منوهای سایت -->
+                    <?php  foreach ($menus as $menu) { if($menu['z'] == 0){ //فقط آیتم هایی که سرگروه هستند نمایش داده شود. ?>
+                        <li class="nav-item dropdown">
+                        <a href="<?php  echo $menu['src']; ?>" class="nav-link <?php  foreach ($menus as $z) { if($menu['id'] == $z['z']) { ?> dropdown-toggle <?php } } // اگر زیر گروه نداشت کلاس dropdown-toggle نمایش داده نشود ?>"  aria-haspopup="true" id="navbarDropdown" style="color: #fff;"
+                            role="button" 
+                            <?php  foreach ($menus as $z) { if($menu['id'] == $z['z']) { ?> data-toggle="dropdown" <?php } } // اگر زیر گروه نداشت کلاس data-toggle نمایش داده نشود ?> aria-expanded="false">
+                            <?php  echo $menu['title'];   ?>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a style="text-align: right; " class="dropmenu" href="#"> یونیتی</a>
-                            <a style="text-align: right;" class="dropmenu" href="#">آنریل انجین</a>
-                            <a style="text-align: right; " class="dropmenu" href="#">جاوا</a>
+                            <?php  foreach ($menus as $ul) { if ($menu['id'] == $ul['z']) { ?>
+                                
+                                
+                                <a style="text-align: right; " class="dropmenu" href="<?php  echo $ul['src']; ?>"> <?php  echo $ul['title'];  ?></a>
+                                
+                            <?php }}  ?>
                         </div>
                     </li>
+                    <?php  }} //if & foreach  ?>
+                    <!-- نمایش منوهای سایت -->
+
+                    <!-- اگر کاربر لاگین کرده بود -->
+                    <?php  if(isset($_SESSION['login'])){ ?> 
+                    <li class="nav-item active">
+                        <a class="nav-link" href="logout.php" style="color: #fff;"> خروج   </a>
+                    </li>
+                    <?php  } ?> 
+                    <!-- اگر کاربر لاگین کرده بود -->
                 </ul>
             </div>
         </div>
@@ -98,7 +215,7 @@
             <div class="col-12 col-lg-4 mt-4">
                 <!-- اطلاعات دوره -->
                 <div class="information-cours shadow p-3 mb-5 bg-white rounded box-caption-dore">
-                    <p class="px-3">قیمت این دوره: <span style="color:#6fc342;">۳۰۰,۰۰۰ تومان</span></p>
+                    <p class="px-3">قیمت این دوره: <span style="color:#6fc342;"><?=  $post['value'];  ?> تومان</span></p>
                     <hr>
 
                     <p class="caption-ostad-more">
@@ -155,7 +272,7 @@
                             <path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1 4 11.794z" />
                         </svg>
                         <span>
-                            سطح دوره : پیشرفته
+                            سطح دوره : <?php if($post['level'] == 1) {echo "مقدماتی";} elseif($post['level'] == 2){echo "متوسط";}else{echo "پیشرفته";} ?>
                         </span>
                     </p>
 
@@ -179,7 +296,7 @@
                                 d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4V.5zM0 5h16v9a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V5zm9.336 7.79c-1.11 0-1.656-.767-1.703-1.407h.683c.043.37.387.82 1.051.82.844 0 1.301-.848 1.305-2.164h-.027c-.153.414-.637.79-1.383.79-.852 0-1.676-.61-1.676-1.77 0-1.137.871-1.809 1.797-1.809 1.172 0 1.953.734 1.953 2.668 0 1.805-.742 2.871-2 2.871zm.066-2.544c.625 0 1.184-.484 1.184-1.18 0-.832-.527-1.23-1.16-1.23-.586 0-1.168.387-1.168 1.21 0 .817.543 1.2 1.144 1.2zm-2.957-2.89v5.332H5.77v-4.61h-.012c-.29.156-.883.52-1.258.777V8.16a12.6 12.6 0 0 1 1.313-.805h.632z" />
                         </svg>
                         <span>
-                            تاریخ آخرین بروزرسانی : ۱۳۹۹/۰۴/۱۴
+                            تاریخ آخرین بروزرسانی : <?= jdate('d-m-Y', $post['update_date'])  ?>
                         </span>
                     </p>
                     <br>
@@ -257,41 +374,15 @@
             <div class="col-12 col-lg-8 mt-4" style="border: 1px solid #ecf0f4;">
                 <div class="shadow p-3 mb-5 bg-white rounded">
                     <div class="image-crouser p-4">
-                        <img class="img-fluid " src="../image/php-tutorial.jpg" alt="">
+                        <img class="img-fluid " src="<?= $post['image'] ?>" alt="">
                     </div>
                     <!-- درباره دوره -->
                     <div class="content-course">
                         <div class="course-content-text js-collapse-container collapsed collapsed-custom"
                             style="height: 1107px; max-height: inherit;">
-                            <h2>آموزش ساخت وبسایت آموزشی (فروشگاهی) با PHP</h2>
-                            <p>زبان برنامه نویسی php یکی از محبوب ترین زبان های برنامه نویسی تحت وب میان علاقمندان به
-                                این حوزه بوده بطوری که سیستم های مدیریت محتوای محبوبی همچون وردپرس, جوملا, دورپال و...
-                                با استفاده از آن طراحی و ایجاد شده است.اما همیشه اتکا به امکانات این نوع سیستم ها منطقی
-                                نبوده و در بعضی مواقع نیاز به طراحی یک سیستم بصورت اختصاصی احساس می شود در اینگونه موارد
-                                تسط به زبان برنامه نویسی php و توانایی تجزیه و تحلیل مسئله از اهمیت بالایی برخودار است
-                                زیرا درک صحیح از نحوه پیاده سازی یک وب اپلیکشن با قابلیت های بالا ,انعطاف پذیر , و قابل
-                                توسعه تقریبا نیمی از پروسه طراحی و پیاده سازی آن است.</p>
-                            <p>موارد مهم این دوره:</p>
-                            <p>۱: بخش مدیریت دوره های آموزشی</p>
-                            <p>۲: بخش مدرسین</p>
-                            <p>۳: افزودن کد تخفیف</p>
-                            <p>۴: بخش آمار فروش و بازدید دوره ها</p>
-                            <p>۵: مدیریت مقالات</p>
-                            <p>۶: مدیریت دسته بندی ها</p>
-                            <p>۷: ابزارک سئو</p>
-                            <p>۸: ابزارک حرفه ای تبلیغات</p>
-                            <p>۹: قابلیت قرار دادن ویدئو دمو دوره آموزشی</p>
-                            <p>۱۰: قابلیت انتخواب نوع دوره(رایگان ، نقدی)</p>
-                            <p>۱۱: امکان ارسال ایمیل برای کاربر بعد از خرید</p>
-                            <p>۱۲: امکان دریافت تمام مشخصات کاربر بعد از خرید توسط سیستم</p>
-                            <p>۱۳: امکان مشاهده ی پرفروشترین دوره های آموزشی در پنل ادمین</p>
-                            <p>۱۴: امکان برقراری ارتباط بین مدرس و دانشجو از طریق تیکت (درون خود سایت)</p>
-                            <p>۱۵: سیستم نظر دهی حرفه ای و چند سطحی</p>
-                            <p>۱۶: مدیریت پیشرفته ی اسلایدر ها</p>
-                            <p>۱۷: ایجاد پروفایل کاربری برای دانشجو و مدرس</p>
-                            <p>۱۸: امکان پسندیدن یا نپسندیدن برای دوره ها</p>
-                            <p>۱۹: دریافت و ثبت سیستم عامل کاربر (موبایل ، دکستاپ)</p>
-                            <p>۲۰: دریافت و ثبت زمان ورود و خروج کاربر + مدت زمان حضور در صفحات</p><br>
+                            <h2><?=  $post['title'] ?></h2>
+                            <p<?=  $post['content'] ?></p>
+                            
                             <div><span class="course-info-btn-display-more js-collapse-btn" data-collapsed="نمایش بیشتر"
                                     data-expand="بستن"> <i
                                         class="zmdi zmdi-chevron-down course-info-icon-down-display-more"></i> </span>
