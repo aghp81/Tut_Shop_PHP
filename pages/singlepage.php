@@ -14,6 +14,9 @@
   $result->execute();
   $menus = $result->fetchAll(PDO::FETCH_ASSOC);
 
+  // جدا کردن کلمه های برچسب با کاما
+  $tags = explode(',', $post['tag']);
+
 ?>
 
 <!DOCTYPE html>
@@ -350,13 +353,18 @@
                         برچسب ها:
                     </p>
                     <hr>
-
+                        
                     <div class="p-2">
-                        <a href="" class="category-tags-1">برنامه نویسی وب</a>
-                        <a href="" class="category-tags-1">برنامه نویسی وب</a>
-                        <a href="" class="category-tags-1">برنامه نویسی وب</a>
-                        <a href="" class="category-tags-1">برنامه نویسی وب</a>
+                        <!-- نمایش تگ ها به صورت داینامیک -->
+                    <?php  foreach ($tags as $tag) : ?>
+                        <a href="" class="category-tags-1">
+                            <?=  $tag  ?>
+                        </a>
+                        <?php  endforeach;  ?>
+                        <!-- نمایش تگ ها به صورت داینامیک -->
                     </div>
+                    
+
 
                 </div>
                 <!-- برچسب ها -->
