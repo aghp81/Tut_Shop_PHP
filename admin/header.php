@@ -1,9 +1,14 @@
 <?php  
     //اگر کاربر ادمین نبود هدایت شود به صفحه اصلی سایت
     include "../database/db.php";
-    if($_SESSION['role'] !== 2 ){
-        header('Location:../index.php');
-    } 
+    if($_SESSION['role'] == 2 ){
+        header('Location: admin');
+    } else{
+        echo "<script>
+          window.alert('شما دسترسی ورود به این بخش را ندارید');
+          window.location.href='../index.php';
+        </script>";
+    }
 
     // هر صفحه ای که در آن بودیم کلاس اکتیو فعال شود
     function active($currect_page){
