@@ -907,7 +907,7 @@ footer a{
 .register-item{
     width: 47%;
     margin-right: 279px;
-    height: 600px;
+    height: auto;
     box-shadow: 0 0 15px #d7dee9;
     background-color: #fff;
     border-radius: 20px;
