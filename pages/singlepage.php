@@ -1,13 +1,56 @@
 <?php
     include "../database/db.php";
     include "../script/jdf.php";
-    $course = $_GET['course'];
 
+    $alertAdd = null;
+    $alertError = null;
+    $hasRegister = false;
+    $hasLogin = false;
+    $user_id = 0;
+
+    // SELECT POST
+    $course = $_GET['course'];
     $result = $conn->prepare("SELECT * FROM course WHERE slug=?");
     $result->bindValue(1, $course);
     $result->execute();
     $post = $result->fetch(PDO::FETCH_ASSOC);
     //var_dump($post);
+
+    // has Register in course
+if(isset($_SESSION['login'])){
+    $user_id = $_SESSION['id'];
+    $hasLogin = true;
+
+    $result = $conn->prepare("SELECT * FROM store WHERE user_id=? AND course_id=?");
+    $result->bindValue(1, $user_id);
+    $result->bindValue(2, $post['id']);
+    $result->execute();
+    if($result->rowCount() >= 1){
+        $hasRegister = true;
+    }
+}
+
+
+// add to course
+if (isset($_POST['add'])) {
+
+    $result = $conn->prepare("SELECT * FROM store WHERE user_id=? AND course_id=?");
+    $result->bindValue(1, $_SESSION['id']);
+    $result->bindValue(2, $post['id']);
+    $result->execute();
+
+    // اگر کاربر قبلا در دوره ثبت نام کرده پیغام خطای ثبت نام دریافت کند
+    if ($result->rowCount() >= 1) {
+        $alertError = true;
+    } else {
+        $result = $conn->prepare("INSERT INTO store SET user_id=? , course_id=?");
+        $result->bindValue(1, $_SESSION['id']);
+        $result->bindValue(2, $post['id']);
+        $result->execute();
+        $alertAdd = true;
+    }
+}
+
 
     // فچ کردن همه ردیف های جدول منو برای نمایش در منوها
   $result = $conn->prepare("SELECT * FROM menu ORDER BY sort ASC");
@@ -305,7 +348,20 @@
                     <br>
 
                     <div class="btn btn-outline-success btn-lg login-in-dore">
-                        <a href="" class="shoping-btn">ثبتـــ نام در این دوره</a>
+                    <?php if (isset($_SESSION['login']) && $hasRegister == false) { ?>
+                    <form method="post">
+                        <input class="btn btn-success add-butt login-in-dore login-in-dore-hover" type="submit"
+                            name="add" value="ثبتــــ نام در این دوره">
+                    </form>
+                    <?php }else if(isset($_SESSION['login']) && $hasRegister == true){ ?>
+                    <form method="post">
+                        <input class="btn btn-info add-butt login-in-dore" type="submit" name="add"
+                            value="شما دانشجوی این دوره هستید">
+                    </form>
+                    <?php } else { ?>
+                    <a href="login.php" class="btn btn-warning d-block" style="padding: 10px 14px;">ابتدا وارد
+                        شـــوید</a>
+                    <?php } ?>
                     </div>
 
                 </div>
@@ -543,6 +599,58 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
+
+    <!-- sweetaler js library -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- sweetaler js library -->
+
+     
+ <!-- پیغام ثبت نام یا عدم ثبت نام در دوره -->
+<?php if ($alertAdd) { ?>
+    <script>
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'bottom',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    })
+
+    Toast.fire({
+        icon: 'success',
+        title: 'دوره به سبد خرید شما اضافه شد'
+    })
+    </script>
+    <?php } ?>
+
+    <?php if ($alertError) { ?>
+    <script>
+    const ToastErr = Swal.mixin({
+        toast: true,
+        position: 'bottom',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    })
+
+    ToastErr.fire({
+        icon: 'error',
+        title: 'دوره قبلا به سبد خرید اضافه شده'
+    })
+    </script>
+    <?php } ?>
+
+     <!-- پیغام ثبت نام یا عدم ثبت نام در دوره -->
+
+
 </body>
 
 </html>
