@@ -2,7 +2,7 @@
     //اگر کاربر ادمین نبود هدایت شود به صفحه اصلی سایت
     include "../database/db.php";
     if($_SESSION['role'] == 2 ){
-        header('Location: admin');
+        header('Location: ');
     } else{
         echo "<script>
           window.alert('شما دسترسی ورود به این بخش را ندارید');
