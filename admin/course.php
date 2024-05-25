@@ -4,7 +4,7 @@
 
   $successadd = null;
   $num = 1;
-  $titleErr = $contentErr = $imagetErr = "";
+  $titleErr = $contentErr = $imagetErr = $introtErr = "";
   $title= $content = $image = $tag = $slug =  $value = $level = "";
 
 
@@ -20,6 +20,7 @@
     $value = $_POST['value'];
     $level = $_POST['level'];
     $status = $_POST['status'];
+    $intro = $_POST['intro'];
     
     if (empty($_POST['title'])) {
         $titleErr = "عنوان دوره الزامی است.";
@@ -27,9 +28,12 @@
         $contentErr = "توضیحات دوره الزامی است.";
     }elseif(empty($_POST['image'])) {
         $imagetErr = "تصویر دوره الزامی است.";
+    }
+    elseif(empty($_POST['intro'])) {
+        $introtErr = "ویدئوی معرفی دوره الزامی است.";
     }else{
     
-    $result = $conn->prepare('INSERT INTO course SET title=?, content=?, image=?, tag=?, slug=?, value=?, level=?, create_date=?, update_date=?, status=?');
+    $result = $conn->prepare('INSERT INTO course SET title=?, content=?, image=?, tag=?, slug=?, value=?, level=?, create_date=?, update_date=?, status=?, intro=?');
     $result->bindValue(1, $title);
     $result->bindValue(2, $content);
     $result->bindValue(3, $image);
@@ -40,6 +44,7 @@
     $result->bindValue(8, time());
     $result->bindValue(9, time());
     $result->bindValue(10, $status);
+    $result->bindValue(11, $intro);
     //var_dump($result); die;
     $result->execute();
     $successadd = true;
@@ -108,6 +113,12 @@ function test_input($data) {
                                         </div>
 
                                         <div class="form-group">
+                                            <label for="" class="mt-3">  ویدئوی معرفی دوره</label>
+                                            <input type="text" name="intro" class="form-control mt-3">
+                                            <span class="error"> <?php echo $introtErr; ?></span>
+                                        </div>
+
+                                        <div class="form-group">
                                             <label for="" class="mt-3">  برچسب ها</label>
                                             <input type="text" name="tag" class="form-control mt-3" value="<?php echo $tag;?>">
                                         </div>
@@ -135,10 +146,10 @@ function test_input($data) {
                                             <label for="" class="mt-3">وضعیت دوره</label>
                                             <br>
                                             <input type="radio" name="status" class="form-check-input"  value="1">
-                                            <label for="" class="form-check-label">فعال </label>
+                                            <label for="" class="form-check-label">تکمیل شده </label>
                                                                                        
                                             <input type="radio" name="status" class="form-check-input"  value="0" checked>
-                                            <label for="" class="form-check-label">غیر فعال </label>
+                                            <label for="" class="form-check-label"> در حال برگزاری </label>
                                         </div>
 
                                         <br>
