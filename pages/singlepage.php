@@ -289,7 +289,7 @@
                         <span>
                             وضعیت دوره
                         </span>
-                        : <span style="color: #00b3e9;">در حال برگزاری</span>
+                        : <span style="color: #00b3e9;"> <?php  if($post['status'] == 0){echo "درحال برگزاری";}else{echo "تکمیل شده";}  ?> </span>
                     </p>
 
                     <p class="caption-ostad-more">
@@ -404,7 +404,7 @@
                         <div>
                             <h5 class="p-4">فهرستـــ ویدیوها</h5>
 
-                            <video class="video-item p-4" src="../video/01_PhpCreateEshop.mp4" controls width="100%"></video>
+                            <video class="video-item p-4" src="<?=  $post['intro'];  ?>" controls width="100%"></video>
                         </div>
 
                         <div class="alert alert-warning">
